@@ -10,6 +10,7 @@ public class Hoop : MonoBehaviour
     public HoopDirection direction;
     public TextMeshPro idText;
     public SpriteRenderer spriteRenderer;
+    
 
     public void Init(Hoop lastHoop, int id)
     {
