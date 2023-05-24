@@ -1273,6 +1273,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Holder
       objectReference: {fileID: 0}
+    - target: {fileID: 7929446652501120760, guid: 6552b89ea9dda4e47aebb49c90bbc0f5,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9147117070551125741, guid: 6552b89ea9dda4e47aebb49c90bbc0f5,
         type: 3}
       propertyPath: m_RootOrder

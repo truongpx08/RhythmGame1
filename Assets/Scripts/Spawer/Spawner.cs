@@ -37,6 +37,18 @@ public class Spawner : TruongMonoBehaviour
         {
             prefabs.Add(prefab);
         }
+
+        HidePrefab();
+
+        if (Application.isPlaying)
+        {
+            Debug.LogWarning("Since prefabs is empty, you need to reset it at inspector for initialization.");
+        }
+    }
+
+    private void HidePrefab()
+    {
+        prefabs.ForEach(p => p.gameObject.SetActive(false));
     }
 
 
@@ -55,7 +67,7 @@ public class Spawner : TruongMonoBehaviour
         return newPrefab;
     }
 
-    protected virtual Transform GetObjectFromPool(Transform prefab)
+    private Transform GetObjectFromPool(Transform prefab)
     {
         foreach (var obj in objectsPool.Where(obj => obj.name == prefab.name))
         {
@@ -68,7 +80,7 @@ public class Spawner : TruongMonoBehaviour
         return newPrefab;
     }
 
-    protected Transform GetPrefabByName(string prefabName)
+    private Transform GetPrefabByName(string prefabName)
     {
         return prefabs.Find(p => p.name == prefabName);
     }

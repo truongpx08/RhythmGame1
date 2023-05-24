@@ -12,8 +12,9 @@ public class HolderSpawner : Spawner
     [SerializeField] private float spacing;
     private Holder currentHolder;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if (Instance != null) Debug.LogError($"Only one {name} is allowed to exist");
         Instance = this;
     }
@@ -31,7 +32,7 @@ public class HolderSpawner : Spawner
         var lastHolder = currentHolder;
         for (var i = 0; i < amount; i++)
         {
-            var newHoop = Spawn("Holder").GetComponent<Holder>();
+            var newHoop = Spawn("Holder", Vector3.zero, Quaternion.identity).GetComponent<Holder>();
             if (i == 0 && isStart)
                 newHoop.Init(i);
             else

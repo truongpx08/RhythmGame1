@@ -1,21 +1,27 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class TruongMonoBehaviour : MonoBehaviour
 {
-    private void Reset()
+    protected virtual void Reset()
     {
         LoadComponents();
         ResetValue();
     }
 
+    protected virtual void Awake()
+    {
+        LoadComponents();
+    }
+
     protected virtual void LoadComponents()
     {
-        //For overriding
+        //For override
     }
 
     protected virtual void ResetValue()
     {
-        //For overriding
+        //For override
     }
 }
