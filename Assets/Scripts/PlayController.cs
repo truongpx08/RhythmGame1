@@ -9,9 +9,11 @@ public class PlayController : TruongMonoBehaviour
     [SerializeField] protected GameConfig config;
     public bool isPlaying;
     private new Camera camera;
+    public bool isCompleted;
 
-    private void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         if (Instance != null) Debug.LogError($"Only one {name} is allowed to exist");
         Instance = this;
     }

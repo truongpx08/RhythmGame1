@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class Spawner : TruongMonoBehaviour
+public abstract class Spawner : TruongMonoBehaviour
 {
     [SerializeField] protected Transform holder;
     [SerializeField] protected List<Transform> prefabs = new List<Transform>();
@@ -51,7 +51,6 @@ public class Spawner : TruongMonoBehaviour
         prefabs.ForEach(p => p.gameObject.SetActive(false));
     }
 
-
     protected Transform Spawn(string prefabName, Vector3 spawnPosition, Quaternion spawnRotation)
     {
         var prefab = GetPrefabByName(prefabName);
@@ -64,8 +63,16 @@ public class Spawner : TruongMonoBehaviour
         var newPrefab = GetObjectFromPool(prefab);
         newPrefab.SetPositionAndRotation(spawnPosition, spawnRotation);
         newPrefab.parent = holder;
+        newPrefab.gameObject.SetActive(true);
         return newPrefab;
     }
+
+    protected internal void Despawn(Transform obj)
+    {
+        obj.gameObject.SetActive(false);
+        objectsPool.Add(obj);
+    }
+
 
     private Transform GetObjectFromPool(Transform prefab)
     {

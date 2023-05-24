@@ -1,13 +1,30 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Despawn : TruongMonoBehaviour
+public abstract class Despawn : TruongMonoBehaviour
 {
-    [Button]
+    protected virtual void FixedUpdate()
+    {
+        Depawning();
+    }
+
+    private void Depawning()
+    {
+        if (!CanDespawn()) return;
+        DespawnObject();
+    }
+
     protected virtual void DespawnObject()
     {
-        Destroy(transform.parent.gameObject);
+        //For override
+    }
+
+    protected virtual bool CanDespawn()
+    {
+        return false;
+        //For override
     }
 }

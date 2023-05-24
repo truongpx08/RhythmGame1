@@ -32,7 +32,7 @@ public class HolderSpawner : Spawner
         var lastHolder = currentHolder;
         for (var i = 0; i < amount; i++)
         {
-            var newHoop = Spawn("Holder", Vector3.zero, Quaternion.identity).GetComponent<Holder>();
+            var newHoop = Spawn("SquareHolder", Vector3.zero, Quaternion.identity).GetComponent<Holder>();
             if (i == 0 && isStart)
                 newHoop.Init(i);
             else

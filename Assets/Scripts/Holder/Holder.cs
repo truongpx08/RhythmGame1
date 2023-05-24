@@ -12,7 +12,7 @@ public class Holder : MonoBehaviour
 
     public void Init(int id)
     {
-        name = "Hoop" + id;
+        // name = "Hoop" + id;
         idText.text = id.ToString();
         spriteRenderer.color = Color.yellow;
     }
