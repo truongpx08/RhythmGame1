@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Pixelplacement;
+﻿using Pixelplacement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
@@ -8,15 +6,16 @@ public class CanvasController : Singleton<CanvasController>
 {
     public GameObject losePanel;
 
+    [Button]
     public void OnClickInputButton()
     {
-        ObjectController.Instance.OnTouch();
+        // Player.Instance.OnTouch();
     }
 
     [Button]
     public void OnClickPlayButton()
     {
         losePanel.SetActive(false);
-        GameController.Instance.Play();
+        PlayController.Instance.OnPlay();
     }
 }
