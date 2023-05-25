@@ -1,14 +1,16 @@
 ﻿using Pixelplacement;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public class CirclesController : TruongMonoBehaviour
+public class TwoCircleController : TruongMonoBehaviour
 {
-    public static CirclesController Instance { get; private set; }
-    [SerializeField] protected Transform centerObject;
-    public Transform CenterObject => centerObject;
-    [SerializeField] protected Transform rotatingObject;
-    public Transform RotatingObject => rotatingObject;
+    public static TwoCircleController Instance { get; private set; }
+    [SerializeField] protected CircleController circle1;
+    public CircleController Circle1 => circle1;
+    [SerializeField] protected CircleController circle2;
+    public CircleController Circle2 => circle2;
+
     // [SerializeField] private float angle;
     // [SerializeField] private bool isIncreaseSpeed;
     // [SerializeField] private float maxSpeed;
@@ -29,20 +31,9 @@ public class CirclesController : TruongMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        centerObject = transform.Find("Circle1");
-        rotatingObject = transform.Find("Circle2");
+        circle1 = transform.Find("Circle1").GetComponent<CircleController>();
+        circle2 = transform.Find("Circle2").GetComponent<CircleController>();
     }
-
-    protected Transform GetCenterObject()
-    {
-        return centerObject;
-    }
-
-    protected Transform GetRotatingObject()
-    {
-        return RotatingObject;
-    }
-
 
     // protected override void ResetValue()
     // {
@@ -114,7 +105,7 @@ public class CirclesController : TruongMonoBehaviour
     //             angle = 0; //right
     //         (centerPoint, objectPoint) = (objectPoint, centerPoint);
     //         CameraController.Instance.Follow(centerPoint);
-    // HolderSpawner.Instance.UpdateCurrentHolder();
+    //         HolderSpawner.Instance.UpdateCurrentHolder();
     //
     //         if (speed < maxSpeed && isIncreaseSpeed) speed += speed / 100f * 10;
     //     }

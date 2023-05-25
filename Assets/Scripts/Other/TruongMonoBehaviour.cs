@@ -19,6 +19,7 @@ public abstract class TruongMonoBehaviour : MonoBehaviour
 
     protected virtual void LateUpdate()
     {
+        //For override
     }
 
     protected virtual void LoadComponents()
