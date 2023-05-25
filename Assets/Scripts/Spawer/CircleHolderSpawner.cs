@@ -4,13 +4,14 @@ using Pixelplacement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class HolderSpawner : Spawner
+public class CircleHolderSpawner : Spawner
 {
-    public static HolderSpawner Instance { get; private set; }
-    private List<Holder> holders = new List<Holder>();
+    public static CircleHolderSpawner Instance { get; private set; }
     [SerializeField] private int amount;
     [SerializeField] private float spacing;
-    private Holder currentHolder;
+
+    private CircleHolder _currentCircleHolder;
+    private List<CircleHolder> holders = new List<CircleHolder>();
 
     protected override void Awake()
     {
@@ -28,18 +29,20 @@ public class HolderSpawner : Spawner
     [Button]
     public void SpawnHolders()
     {
-        var isStart = currentHolder == null;
-        var lastHolder = currentHolder;
+        var isStart = _currentCircleHolder == null;
+        CircleHolder lastHolder = null;
+        lastHolder = holders.Count == 0 ? null : holders[holders.Count - 1];
         for (var i = 0; i < amount; i++)
         {
-            var newHoop = Spawn("SquareHolder", Vector3.zero, Quaternion.identity).GetComponent<Holder>();
+            var newHoop = Spawn("CircleHolder", new Vector3(0, 0.4f, 0), Quaternion.identity)
+                .GetComponent<CircleHolder>();
             if (i == 0 && isStart)
                 newHoop.Init(i);
             else
                 newHoop.InitFollowLastHolder(lastHolder, i, spacing);
 
             if (i == 0)
-                currentHolder = newHoop;
+                _currentCircleHolder = newHoop;
             lastHolder = newHoop;
             holders.Add(newHoop);
         }
@@ -52,12 +55,6 @@ public class HolderSpawner : Spawner
     //     SpawnHolders();
     // }
     //
-    // [Button]
-    // private void RemoveHolders()
-    // {
-    //     holders.ForEach(h => Destroy(h.gameObject));
-    //     holders.Clear();
-    // }
 
 
     // public void UpdateCurrentHolder()

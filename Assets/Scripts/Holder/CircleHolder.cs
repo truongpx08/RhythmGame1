@@ -4,11 +4,24 @@ using TMPro;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class Holder : MonoBehaviour
+public class CircleHolder : TruongMonoBehaviour
 {
     public Direction direction;
     public TextMeshPro idText;
     public SpriteRenderer spriteRenderer;
+
+    protected override void LoadComponents()
+    {
+        base.LoadComponents();
+        spriteRenderer = transform.Find(TruongConstants.MODEL).GetComponent<SpriteRenderer>();
+        idText = transform.Find("IdText").GetComponent<TextMeshPro>();
+    }
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        direction = Direction.Up;
+    }
 
     public void Init(int id)
     {
@@ -17,11 +30,11 @@ public class Holder : MonoBehaviour
         spriteRenderer.color = Color.yellow;
     }
 
-    public void InitFollowLastHolder(Holder lastHolder, int id, float spacing)
+    public void InitFollowLastHolder(CircleHolder lastCircleHolder, int id, float spacing)
     {
         Init(id);
         var directions = new List<Direction>();
-        switch (lastHolder.direction)
+        switch (lastCircleHolder.direction)
         {
             case Direction.Up:
                 directions.Add(Direction.Up);
@@ -45,16 +58,16 @@ public class Holder : MonoBehaviour
         switch (direction)
         {
             case Direction.Up:
-                transform.position = lastHolder.transform.position + new Vector3(0, spacing, 0);
+                transform.position = lastCircleHolder.transform.position + new Vector3(0, spacing, 0);
                 break;
             case Direction.Down:
-                transform.position = lastHolder.transform.position + new Vector3(0, -spacing, 0);
+                transform.position = lastCircleHolder.transform.position + new Vector3(0, -spacing, 0);
                 break;
             case Direction.Left:
-                transform.position = lastHolder.transform.position + new Vector3(-spacing, 0, 0);
+                transform.position = lastCircleHolder.transform.position + new Vector3(-spacing, 0, 0);
                 break;
             case Direction.Right:
-                transform.position = lastHolder.transform.position + new Vector3(spacing, 0, 0);
+                transform.position = lastCircleHolder.transform.position + new Vector3(spacing, 0, 0);
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

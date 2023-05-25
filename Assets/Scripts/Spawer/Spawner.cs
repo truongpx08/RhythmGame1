@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
 public abstract class Spawner : TruongMonoBehaviour
@@ -21,10 +22,17 @@ public abstract class Spawner : TruongMonoBehaviour
         holder = transform.Find(TruongConstants.HOLDER);
     }
 
+    protected override void LateUpdate()
+    {
+        base.LateUpdate();
+        HidePrefab();
+    }
+
 
     private void LoadPrefabs()
     {
-        if (prefabs.Count > 0) return;
+        if (prefabs.Count > 0)
+            return;
 
         var prefabsTransform = transform.Find(TruongConstants.PREFABS);
         if (prefabsTransform == null)
@@ -38,14 +46,13 @@ public abstract class Spawner : TruongMonoBehaviour
             prefabs.Add(prefab);
         }
 
-        HidePrefab();
-
         if (Application.isPlaying)
         {
             Debug.LogWarning("Since prefabs is empty, you need to reset it at inspector for initialization.");
         }
     }
 
+    [Button]
     private void HidePrefab()
     {
         prefabs.ForEach(p => p.gameObject.SetActive(false));
@@ -56,7 +63,7 @@ public abstract class Spawner : TruongMonoBehaviour
         var prefab = GetPrefabByName(prefabName);
         if (prefab == null)
         {
-            Debug.LogError("No prefab found");
+            Debug.LogError($"No prefab {prefabName} found");
             return null;
         }
 
