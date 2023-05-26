@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BoxSetPosition : CircleHolderAbstract
+public class BoxSetPosition : BoxAbstract
 {
     [SerializeField] protected Direction direction;
 
@@ -14,10 +14,10 @@ public class BoxSetPosition : CircleHolderAbstract
         direction = Direction.Up;
     }
 
-    public void SetPosition(BoxController lastBoxController, float spacing)
+    public void SetPosition(Box lastBox, float spacing)
     {
-        direction = GetDirection(lastBoxController);
-        var lastCirclePosition = lastBoxController.transform.position;
+        direction = GetDirection(lastBox);
+        var lastCirclePosition = lastBox.transform.position;
         Vector3 bonusPos;
         switch (direction)
         {
@@ -40,10 +40,10 @@ public class BoxSetPosition : CircleHolderAbstract
         transform.parent.transform.position = lastCirclePosition + bonusPos;
     }
 
-    protected virtual Direction GetDirection(BoxController lastBoxController)
+    protected virtual Direction GetDirection(Box lastBox)
     {
         var directions = new List<Direction>();
-        switch (lastBoxController.BoxSetPosition.direction)
+        switch (lastBox.BoxSetPosition.direction)
         {
             case Direction.Up:
                 directions.Add(Direction.Up);

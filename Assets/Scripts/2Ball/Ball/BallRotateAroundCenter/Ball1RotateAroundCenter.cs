@@ -5,13 +5,11 @@ using UnityEngine;
 
 public class Ball1RotateAroundCenter : BallRotateAroundCenter
 {
-    protected override void RotateAroundCenter()
+    protected override void Rotate()
     {
-        if (twoBallController.Ball1.BallStop.IsPause) return;
-        angle -= speed * Time.deltaTime;
-        var centerPos = twoBallController.Ball2.transform.position;
-        var x = centerPos.x + radius * Mathf.Cos(angle);
-        var y = centerPos.y + radius * Mathf.Sin(angle);
-        transform.parent.transform.position = new Vector3(x, y, 0);
+        var isPause = twoBall.Ball1.BallStop.IsPause;
+        isRotating = !isPause;
+        if (isPause) return;
+        RotateAroundCenter(twoBall.Ball2.transform.position);
     }
 }

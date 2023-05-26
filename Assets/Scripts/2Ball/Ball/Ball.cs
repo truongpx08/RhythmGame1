@@ -3,7 +3,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BallController : TwoCircleAbstract
+public class Ball : TwoBallAbstract
 {
     [SerializeField] protected BallRotateAroundCenter ballRotateAroundCenter;
     public BallRotateAroundCenter BallRotateAroundCenter => ballRotateAroundCenter;

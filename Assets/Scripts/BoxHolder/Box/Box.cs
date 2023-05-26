@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using Random = UnityEngine.Random;
 
-public class BoxController : TruongMonoBehaviour
+public class Box : TruongMonoBehaviour
 {
     [SerializeField] protected TextMeshPro id;
     public TextMeshPro Id => id;
@@ -16,7 +17,11 @@ public class BoxController : TruongMonoBehaviour
     public BoxSetId BoxSetId => boxSetId;
     [SerializeField] protected BoxSetColorModel boxSetColorModel;
     public BoxSetColorModel BoxSetColorModel => boxSetColorModel;
-
+    [SerializeField] protected BoxAllowContainBall boxAllowContainBall;
+    public BoxAllowContainBall BoxAllowContainBall => boxAllowContainBall;
+    [SerializeField] protected BoxContainBall boxContainBall;
+    public BoxContainBall BoxContainBall => boxContainBall;
+    
     protected override void LoadComponents()
     {
         base.LoadComponents();
@@ -25,12 +30,14 @@ public class BoxController : TruongMonoBehaviour
         LoadBoxSetPosition();
         LoadBoxSetId();
         LoadBoxSetColorModel();
+        LoadBoxAllowContainBall();
+        LoadBoxContainBall();
     }
 
 
     protected void LoadModel()
     {
-        model = transform.Find(TruongConstants.MODEL).GetComponent<SpriteRenderer>();
+        model = transform.Find(Constants.MODEL).GetComponent<SpriteRenderer>();
     }
 
     protected void LoadId()
@@ -52,5 +59,17 @@ public class BoxController : TruongMonoBehaviour
     {
         boxSetColorModel =
             transform.Find("BoxSetColorModel").GetComponent<BoxSetColorModel>();
+    }
+
+    protected void LoadBoxAllowContainBall()
+    {
+        boxAllowContainBall =
+            transform.Find("BoxAllowContainBall").GetComponent<BoxAllowContainBall>();
+    }
+
+    protected void LoadBoxContainBall()
+    {
+        boxContainBall =
+            transform.Find("BoxContainBall").GetComponent<BoxContainBall>();
     }
 }

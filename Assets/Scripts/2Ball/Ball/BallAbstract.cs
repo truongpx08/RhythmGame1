@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public abstract class CircleAbstract : TwoCircleAbstract
+public abstract class BallAbstract : TwoBallAbstract
 {
-    [SerializeField] protected BallController ballController;
+    [FormerlySerializedAs("ballController")] [SerializeField]
+    protected Ball ball;
 
     protected override void LoadComponents()
     {
@@ -14,6 +16,6 @@ public abstract class CircleAbstract : TwoCircleAbstract
 
     protected void LoadCirclesController()
     {
-        ballController = transform.parent.GetComponent<BallController>();
+        ball = transform.parent.GetComponent<Ball>();
     }
 }

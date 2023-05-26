@@ -1,10 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
-public abstract class CircleHolderAbstract : TruongMonoBehaviour
+public abstract class BoxAbstract : TruongMonoBehaviour
 {
-    [SerializeField] protected BoxController boxController;
+    [FormerlySerializedAs("boxController")] [SerializeField]
+    protected Box box;
 
     protected override void LoadComponents()
     {
@@ -14,6 +16,6 @@ public abstract class CircleHolderAbstract : TruongMonoBehaviour
 
     protected void LoadCircleHolderController()
     {
-        boxController = transform.parent.GetComponent<BoxController>();
+        box = transform.parent.GetComponent<Box>();
     }
 }

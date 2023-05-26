@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class BoxSetColorModel : CircleHolderAbstract
+public class BoxSetId : BoxAbstract
 {
     [Button]
-    public void SetColor(Color color)
+    public void SetId(int id)
     {
-        boxController.Model.color = color;
+        box.Id.text = id.ToString();
     }
 }

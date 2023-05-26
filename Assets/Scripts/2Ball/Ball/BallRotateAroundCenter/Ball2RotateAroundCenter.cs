@@ -5,18 +5,11 @@ using UnityEngine;
 
 public class Ball2RotateAroundCenter : BallRotateAroundCenter
 {
-    [SerializeField] protected bool isRotating;
-    public bool IsRotating => isRotating;
-
-    protected override void RotateAroundCenter()
+    protected override void Rotate()
     {
-        var isPause = twoBallController.Ball2.BallStop.IsPause;
-        isRotating = isPause;
+        var isPause = twoBall.Ball2.BallStop.IsPause;
+        isRotating = !isPause;
         if (isPause) return;
-        var centerPos = twoBallController.Ball1.transform.position;
-        angle -= speed * Time.deltaTime;
-        var x = centerPos.x + radius * Mathf.Cos(angle);
-        var y = centerPos.y + radius * Mathf.Sin(angle);
-        transform.parent.transform.position = new Vector3(x, y, 0);
+        RotateAroundCenter(twoBall.Ball1.transform.position);
     }
 }

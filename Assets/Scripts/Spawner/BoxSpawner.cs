@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using Pixelplacement;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BoxSpawner : Spawner
 {
     public static BoxSpawner Instance { get; private set; }
-    [SerializeField] private int amount;
-    [SerializeField] private float spacing;
+    [SerializeField] protected int amount;
+    [SerializeField] protected float spacing;
+    [SerializeField] protected int count;
+    [SerializeField] protected List<Box> boxes = new List<Box>();
+    public List<Box> Boxes => boxes;
 
-    private BoxController currentBox;
-    private readonly List<BoxController> boxes = new List<BoxController>();
 
     protected override void Awake()
     {
@@ -29,33 +31,35 @@ public class BoxSpawner : Spawner
     {
         amount = 10;
         spacing = 0.4f;
+        count = 0;
     }
 
     [Button]
     public void SpawnBoxes()
     {
-        var isStart = currentBox == null;
-        BoxController lastBox = null;
-        lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
+        var isStart = count == 0;
+        var lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
         for (var i = 0; i < amount; i++)
         {
             var newBox = Spawn("Box", new Vector3(0, 0.4f, 0), Quaternion.identity)
-                .GetComponent<BoxController>();
+                .GetComponent<Box>();
             if (i == 0 && isStart)
-            {
                 InitBox();
-            }
             else
                 InitFollowLastBox();
 
             if (i == 0)
-                currentBox = newBox;
+            {
+                BoxHolder.Instance.BoxSetBoxCanContainBall.SetBoxCanContainBall(newBox);
+            }
+
             lastBox = newBox;
             boxes.Add(newBox);
+            count++;
 
             void InitBox()
             {
-                newBox.BoxSetId.SetId(i);
+                newBox.BoxSetId.SetId(count);
                 newBox.BoxSetColorModel.SetColor(Color.white);
             }
 

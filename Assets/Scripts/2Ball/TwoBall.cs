@@ -3,13 +3,13 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class TwoBallController : TruongMonoBehaviour
+public class TwoBall : TruongMonoBehaviour
 {
-    public static TwoBallController Instance { get; private set; }
-    [SerializeField] protected BallController ball1;
-    public BallController Ball1 => ball1;
-    [SerializeField] protected BallController ball2;
-    public BallController Ball2 => ball2;
+    public static TwoBall Instance { get; private set; }
+    [SerializeField] protected Ball ball1;
+    public Ball Ball1 => ball1;
+    [SerializeField] protected Ball ball2;
+    public Ball Ball2 => ball2;
 
     protected override void Awake()
     {
@@ -21,8 +21,8 @@ public class TwoBallController : TruongMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        ball1 = transform.Find("Ball1").GetComponent<BallController>();
-        ball2 = transform.Find("Ball2").GetComponent<BallController>();
+        ball1 = transform.Find("Ball1").GetComponent<Ball>();
+        ball2 = transform.Find("Ball2").GetComponent<Ball>();
     }
 
     // protected override void ResetValue()

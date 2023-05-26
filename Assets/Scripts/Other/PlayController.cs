@@ -1,6 +1,7 @@
 ﻿using System;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class PlayController : TruongMonoBehaviour
 {
@@ -22,7 +23,7 @@ public class PlayController : TruongMonoBehaviour
     {
         config = new GameConfig
         {
-            maxSpeed = 5, minSpeed = 4, requiteSpacing = 0.1f, requiteDistance = 0.1f, hoopSpacing = 0.4f,
+            maxSpeed = 5, minSpeed = 4, distanceLimit = 0.2f, requiteDistance = 0.1f, hoopSpacing = 0.4f,
             hoopAmount = 10, isIncreaseSpeed = false
         };
     }
@@ -52,7 +53,12 @@ public class PlayController : TruongMonoBehaviour
 [Serializable]
 public class GameConfig
 {
-    public float maxSpeed, minSpeed, requiteSpacing, requiteDistance, hoopSpacing;
+    public float maxSpeed, minSpeed;
+
+    [FormerlySerializedAs("requiteSpacing")]
+    public float distanceLimit;
+
+    public float requiteDistance, hoopSpacing;
     public int hoopAmount;
     public bool isIncreaseSpeed;
 }

@@ -19,7 +19,7 @@ public abstract class Spawner : TruongMonoBehaviour
     private void LoadHolder()
     {
         if (holder != null) return;
-        holder = transform.Find(TruongConstants.HOLDER);
+        holder = transform.Find(Constants.HOLDER);
     }
 
     protected override void LateUpdate()
@@ -34,7 +34,7 @@ public abstract class Spawner : TruongMonoBehaviour
         if (prefabs.Count > 0)
             return;
 
-        var prefabsTransform = transform.Find(TruongConstants.PREFABS);
+        var prefabsTransform = transform.Find(Constants.PREFABS);
         if (prefabsTransform == null)
         {
             Debug.LogError("No prefabs found");

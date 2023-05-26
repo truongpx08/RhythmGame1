@@ -350,7 +350,7 @@ MonoBehaviour:
   config:
     maxSpeed: 5
     minSpeed: 4
-    requiteSpacing: 0.1
+    distanceLimit: 0.1
     requiteDistance: 0.1
     hoopSpacing: 0.4
     hoopAmount: 10
@@ -366,6 +366,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 366129588}
+  - component: {fileID: 366129589}
   m_Layer: 0
   m_Name: BoxHolder
   m_TagString: Untagged
@@ -385,10 +386,23 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1204617459}
-  - {fileID: 2077437296}
+  - {fileID: 497437738}
   m_Father: {fileID: 924465444}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &366129589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 366129587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e30a0cddff5d794894c40adb5377651, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  boxSetBoxCanContainBall: {fileID: 497437739}
 --- !u!1 &369004693
 GameObject:
   m_ObjectHideFlags: 0
@@ -519,6 +533,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369004693}
   m_CullTransparentMesh: 0
+--- !u!1 &497437737
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 497437738}
+  - component: {fileID: 497437739}
+  m_Layer: 0
+  m_Name: BoxSetBoxCanContainBall
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497437738
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497437737}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 366129588}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &497437739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 497437737}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cd61221e7776c048b8f098343d9fc2e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentBoxCanContainBall: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -1179,6 +1237,8 @@ MonoBehaviour:
   objectsPool: []
   amount: 10
   spacing: 0.4
+  count: 0
+  boxes: []
 --- !u!4 &1204617459
 Transform:
   m_ObjectHideFlags: 0
@@ -1531,36 +1591,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1953012620}
   m_CullTransparentMesh: 0
---- !u!1 &2077437295
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2077437296}
-  m_Layer: 0
-  m_Name: BoxGetCurrentBox
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &2077437296
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2077437295}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 366129588}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &387335361389230541
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1706,6 +1736,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168733535}
     m_Modifications:
+    - target: {fileID: 1454950020429495649, guid: b40a1666f343cde4f8241be76980fbfa,
+        type: 3}
+      propertyPath: twoBallController
+      value: 
+      objectReference: {fileID: 1168733534}
+    - target: {fileID: 3450406499140786194, guid: b40a1666f343cde4f8241be76980fbfa,
+        type: 3}
+      propertyPath: requiteSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450406499140786194, guid: b40a1666f343cde4f8241be76980fbfa,
+        type: 3}
+      propertyPath: twoBallController
+      value: 
+      objectReference: {fileID: 1168733534}
     - target: {fileID: 4911763448061619815, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: m_Name
@@ -1768,6 +1813,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984888788667725069, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
+      propertyPath: twoBall
+      value: 
+      objectReference: {fileID: 1168733534}
+    - target: {fileID: 4984888788667725069, guid: b40a1666f343cde4f8241be76980fbfa,
+        type: 3}
       propertyPath: twoBallController
       value: 
       objectReference: {fileID: 1168733534}
@@ -1780,6 +1830,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168733535}
     m_Modifications:
+    - target: {fileID: 3450406499140786194, guid: f91220a09d3366e468dd73560329188a,
+        type: 3}
+      propertyPath: requiteSpacing
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3450406499140786194, guid: f91220a09d3366e468dd73560329188a,
+        type: 3}
+      propertyPath: twoBallController
+      value: 
+      objectReference: {fileID: 1168733534}
     - target: {fileID: 4911763448061619815, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
       propertyPath: m_Name
@@ -1840,6 +1900,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4984888788667725069, guid: f91220a09d3366e468dd73560329188a,
+        type: 3}
+      propertyPath: twoBall
+      value: 
+      objectReference: {fileID: 1168733534}
     - target: {fileID: 4984888788667725069, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
       propertyPath: twoBallController

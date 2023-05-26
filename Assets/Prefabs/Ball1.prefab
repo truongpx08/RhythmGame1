@@ -16,6 +16,7 @@ MonoBehaviour:
   angle: -1.5707964
   radius: 0.4
   speed: 4
+  isRotating: 0
 --- !u!114 &4513908677969282695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -145,9 +146,31 @@ PrefabInstance:
       propertyPath: isPause
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: ballController
+      value: 
+      objectReference: {fileID: 4984888788667725069}
+    - target: {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: requiteSpacing
+      value: 0.2
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7466736140893823426, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
+--- !u!114 &4984888788667725069 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5182242423956276954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6fd34f27961c99b4aae4988dd3c23b96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5182242423920278536 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 40221394, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
