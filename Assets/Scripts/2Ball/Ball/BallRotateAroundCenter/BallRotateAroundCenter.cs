@@ -21,10 +21,11 @@ public class BallRotateAroundCenter : TwoBallAbstract
     }
 
     [Button]
-    protected virtual void CalculateOriginalAngle()
+    public void ResetAngle(float value)
     {
-        // For override
+        angle = value;
     }
+
 
     private void Update()
     {

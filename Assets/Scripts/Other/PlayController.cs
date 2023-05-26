@@ -23,7 +23,7 @@ public class PlayController : TruongMonoBehaviour
     {
         config = new GameConfig
         {
-            maxSpeed = 5, minSpeed = 4, distanceLimit = 0.2f, requiteDistance = 0.1f, hoopSpacing = 0.4f,
+            maxSpeed = 5, minSpeed = 4, distanceLimit = 0.1f, requiteDistance = 0.1f, hoopSpacing = 0.4f,
             hoopAmount = 10, isIncreaseSpeed = false
         };
     }

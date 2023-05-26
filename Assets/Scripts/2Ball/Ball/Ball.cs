@@ -10,20 +10,29 @@ public class Ball : TwoBallAbstract
     [SerializeField] protected BallStop ballStop;
     public BallStop BallStop => ballStop;
 
+    [SerializeField] protected BallContinueRotate ballContinueRotate;
+    public BallContinueRotate BallContinueRotate => ballContinueRotate;
+
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadMovement();
-        LoadStop();
+        LoadBall1TransferToBox();
+        LoadBallStop();
+        LoadBallContinueRotate(); 
     }
 
-    protected void LoadMovement()
+    protected void LoadBall1TransferToBox()
     {
         ballRotateAroundCenter = transform.Find("BallRotateAroundCenter").GetComponent<BallRotateAroundCenter>();
     }
 
-    protected void LoadStop()
+    protected void LoadBallStop()
     {
         ballStop = transform.Find("BallStop").GetComponent<BallStop>();
+    }
+
+    protected void LoadBallContinueRotate()
+    {
+        ballContinueRotate = transform.Find("BallContinueRotate").GetComponent<BallContinueRotate>();
     }
 }

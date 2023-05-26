@@ -22,10 +22,4 @@ public class BallStop : TruongMonoBehaviour
     {
         isPause = true;
     }
-
-    [Button]
-    protected void Continue()
-    {
-        isPause = false;
-    }
 }

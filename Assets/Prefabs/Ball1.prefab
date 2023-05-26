@@ -1,5 +1,17 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &1362668353
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92206432273614814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a152b2928e79df41b73c3593f6b5523, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1454950020429495649
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12,11 +24,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b401e8073c456a6448ccbaecb57247d0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  twoBallController: {fileID: 0}
+  twoBall: {fileID: 0}
   angle: -1.5707964
   radius: 0.4
   speed: 4
   isRotating: 0
+--- !u!114 &8431534651572279408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687023010709380045}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b3de7fa1896ef4ca36f0c1c702cffe, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  twoBall: {fileID: 0}
+  ball: {fileID: 4984888788667725069}
 --- !u!114 &4513908677969282695
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -52,6 +78,11 @@ PrefabInstance:
       propertyPath: circleStop
       value: 
       objectReference: {fileID: 4513908677969282695}
+    - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: ballContinueRotate
+      value: 
+      objectReference: {fileID: 1362668353}
     - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
         type: 3}
       propertyPath: rotateAroundCenter
@@ -158,6 +189,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7466736140893823426, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
+    - {fileID: 6528393968171968770, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
+    - {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
 --- !u!114 &4984888788667725069 stripped
 MonoBehaviour:
@@ -180,6 +213,18 @@ GameObject:
 --- !u!1 &9157801576465870422 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4106167975287793804, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5182242423956276954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6687023010709380045 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1956275245550509335, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5182242423956276954}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &92206432273614814 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5092607206876201220, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
     type: 3}
   m_PrefabInstance: {fileID: 5182242423956276954}
   m_PrefabAsset: {fileID: 0}
