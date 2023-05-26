@@ -11,16 +11,6 @@ public class TwoCircleController : TruongMonoBehaviour
     [SerializeField] protected CircleController circle2;
     public CircleController Circle2 => circle2;
 
-    // [SerializeField] private float angle;
-    // [SerializeField] private bool isIncreaseSpeed;
-    // [SerializeField] private float maxSpeed;
-    // [SerializeField] private float minSpeed;
-    // [SerializeField] private float radius;
-    // [SerializeField] private float requireDistance;
-    // [SerializeField] private float requiteSpacing;
-    // [SerializeField] private float speed;
-    // [SerializeField] private bool stop;
-
     protected override void Awake()
     {
         base.Awake();

@@ -10,14 +10,19 @@ public class CircleHolderSpawner : Spawner
     [SerializeField] private int amount;
     [SerializeField] private float spacing;
 
-    private CircleHolder _currentCircleHolder;
-    private List<CircleHolder> holders = new List<CircleHolder>();
+    private CircleHolderController _currentCircleHolder;
+    private List<CircleHolderController> holders = new List<CircleHolderController>();
 
     protected override void Awake()
     {
         base.Awake();
         if (Instance != null) Debug.LogError($"Only one {name} is allowed to exist");
         Instance = this;
+    }
+
+    private void Start()
+    {
+        SpawnHolders();
     }
 
     protected override void ResetValue()
@@ -30,23 +35,38 @@ public class CircleHolderSpawner : Spawner
     public void SpawnHolders()
     {
         var isStart = _currentCircleHolder == null;
-        CircleHolder lastHolder = null;
+        CircleHolderController lastHolder = null;
         lastHolder = holders.Count == 0 ? null : holders[holders.Count - 1];
         for (var i = 0; i < amount; i++)
         {
             var newHoop = Spawn("CircleHolder", new Vector3(0, 0.4f, 0), Quaternion.identity)
-                .GetComponent<CircleHolder>();
+                .GetComponent<CircleHolderController>();
             if (i == 0 && isStart)
-                newHoop.Init(i);
+            {
+                InitCircleHolder();
+            }
             else
-                newHoop.InitFollowLastHolder(lastHolder, i, spacing);
+                InitFollowLastHolder();
 
             if (i == 0)
                 _currentCircleHolder = newHoop;
             lastHolder = newHoop;
             holders.Add(newHoop);
+
+            void InitCircleHolder()
+            {
+                newHoop.CircleHolderSetId.SetId(i);
+                newHoop.CircleHolderSetColorModel.SetColor(Color.white);
+            }
+
+            void InitFollowLastHolder()
+            {
+                InitCircleHolder();
+                newHoop.CircleHolderSetPosition.SetPosition(lastHolder, spacing);
+            }
         }
     }
+
 
     // public void OnPlay()
     // {
