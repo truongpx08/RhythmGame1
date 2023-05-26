@@ -4,14 +4,14 @@ using Pixelplacement;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class CircleHolderSpawner : Spawner
+public class BoxSpawner : Spawner
 {
-    public static CircleHolderSpawner Instance { get; private set; }
+    public static BoxSpawner Instance { get; private set; }
     [SerializeField] private int amount;
     [SerializeField] private float spacing;
 
-    private CircleHolderController _currentCircleHolder;
-    private List<CircleHolderController> holders = new List<CircleHolderController>();
+    private BoxController currentBox;
+    private readonly List<BoxController> boxes = new List<BoxController>();
 
     protected override void Awake()
     {
@@ -22,7 +22,7 @@ public class CircleHolderSpawner : Spawner
 
     private void Start()
     {
-        SpawnHolders();
+        SpawnBoxes();
     }
 
     protected override void ResetValue()
@@ -32,37 +32,37 @@ public class CircleHolderSpawner : Spawner
     }
 
     [Button]
-    public void SpawnHolders()
+    public void SpawnBoxes()
     {
-        var isStart = _currentCircleHolder == null;
-        CircleHolderController lastHolder = null;
-        lastHolder = holders.Count == 0 ? null : holders[holders.Count - 1];
+        var isStart = currentBox == null;
+        BoxController lastBox = null;
+        lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
         for (var i = 0; i < amount; i++)
         {
-            var newHoop = Spawn("CircleHolder", new Vector3(0, 0.4f, 0), Quaternion.identity)
-                .GetComponent<CircleHolderController>();
+            var newBox = Spawn("Box", new Vector3(0, 0.4f, 0), Quaternion.identity)
+                .GetComponent<BoxController>();
             if (i == 0 && isStart)
             {
-                InitCircleHolder();
+                InitBox();
             }
             else
-                InitFollowLastHolder();
+                InitFollowLastBox();
 
             if (i == 0)
-                _currentCircleHolder = newHoop;
-            lastHolder = newHoop;
-            holders.Add(newHoop);
+                currentBox = newBox;
+            lastBox = newBox;
+            boxes.Add(newBox);
 
-            void InitCircleHolder()
+            void InitBox()
             {
-                newHoop.CircleHolderSetId.SetId(i);
-                newHoop.CircleHolderSetColorModel.SetColor(Color.white);
+                newBox.BoxSetId.SetId(i);
+                newBox.BoxSetColorModel.SetColor(Color.white);
             }
 
-            void InitFollowLastHolder()
+            void InitFollowLastBox()
             {
-                InitCircleHolder();
-                newHoop.CircleHolderSetPosition.SetPosition(lastHolder, spacing);
+                InitBox();
+                newBox.BoxSetPosition.SetPosition(lastBox, spacing);
             }
         }
     }

@@ -9,7 +9,7 @@ public class DespawnParent : Despawn
     [Button]
     protected override void DespawnObject()
     {
-        CircleHolderSpawner.Instance.Despawn(transform.parent);
+        BoxSpawner.Instance.Despawn(transform.parent);
     }
 
     protected override bool CanDespawn()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Circle2Stop : CircleStop
+public class Ball2Stop : BallStop
 {
     protected override void ResetValue()
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class CircleAbstract : TwoCircleAbstract
 {
-    [SerializeField] protected CircleController circleController;
+    [SerializeField] protected BallController ballController;
 
     protected override void LoadComponents()
     {
@@ -14,6 +14,6 @@ public abstract class CircleAbstract : TwoCircleAbstract
 
     protected void LoadCirclesController()
     {
-        circleController = transform.parent.GetComponent<CircleController>();
+        ballController = transform.parent.GetComponent<BallController>();
     }
 }

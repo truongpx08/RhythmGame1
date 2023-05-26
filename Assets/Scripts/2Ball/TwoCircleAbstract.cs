@@ -5,7 +5,7 @@ using UnityEngine.Serialization;
 
 public abstract class TwoCircleAbstract : TruongMonoBehaviour
 {
-    [SerializeField] protected TwoCircleController twoCircleController;
+    [SerializeField] protected TwoBallController twoBallController;
 
     protected override void LoadComponents()
     {
@@ -15,6 +15,6 @@ public abstract class TwoCircleAbstract : TruongMonoBehaviour
 
     protected void LoadCirclesController()
     {
-        twoCircleController = FindObjectOfType<TwoCircleController>();
+        twoBallController = FindObjectOfType<TwoBallController>();
     }
 }

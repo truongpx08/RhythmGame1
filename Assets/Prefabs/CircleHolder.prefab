@@ -135,7 +135,7 @@ GameObject:
   - component: {fileID: 5930162292742940957}
   - component: {fileID: 2560925597157601973}
   m_Layer: 0
-  m_Name: CircleHolderSetPosition
+  m_Name: BoxSetPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -167,7 +167,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db950738d7bdf0429e132f655be1a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleHolderController: {fileID: 6418930170906325272}
+  boxController: {fileID: 0}
   direction: 0
 --- !u!1 &2683440096274201645
 GameObject:
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 8653310502166548376}
   - component: {fileID: 4236909316931371571}
   m_Layer: 0
-  m_Name: CircleHolderSetId
+  m_Name: BoxSetId
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -212,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605c09276af900e40ad2d64811ab7642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleHolderController: {fileID: 6418930170906325272}
+  boxController: {fileID: 0}
 --- !u!1 &5744787064412145370
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ GameObject:
   - component: {fileID: 8989965116689586812}
   - component: {fileID: 6039081627080490298}
   m_Layer: 0
-  m_Name: CircleHolderSetColorModel
+  m_Name: BoxSetColorModel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -432,7 +432,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56e8a2d4b5dd5974cbd535a6b4330bbc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circleHolderController: {fileID: 6418930170906325272}
+  boxController: {fileID: 0}
 --- !u!1 &7740309805305424107
 GameObject:
   m_ObjectHideFlags: 0
@@ -484,6 +484,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   id: {fileID: 3197244230681279582}
   model: {fileID: 387335362328830391}
-  circleHolderSetPosition: {fileID: 2560925597157601973}
-  circleHolderSetId: {fileID: 4236909316931371571}
-  circleHolderSetColorModel: {fileID: 6039081627080490298}
+  boxSetPosition: {fileID: 2560925597157601973}
+  boxSetId: {fileID: 4236909316931371571}
+  boxSetColorModel: {fileID: 6039081627080490298}

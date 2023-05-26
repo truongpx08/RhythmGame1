@@ -4,7 +4,7 @@ using UnityEngine;
 
 public abstract class CircleHolderAbstract : TruongMonoBehaviour
 {
-    [SerializeField] protected CircleHolderController circleHolderController;
+    [SerializeField] protected BoxController boxController;
 
     protected override void LoadComponents()
     {
@@ -14,6 +14,6 @@ public abstract class CircleHolderAbstract : TruongMonoBehaviour
 
     protected void LoadCircleHolderController()
     {
-        circleHolderController = transform.parent.GetComponent<CircleHolderController>();
+        boxController = transform.parent.GetComponent<BoxController>();
     }
 }

@@ -1076,7 +1076,7 @@ GameObject:
   - component: {fileID: 1168733535}
   - component: {fileID: 1168733534}
   m_Layer: 0
-  m_Name: 2Circle
+  m_Name: 2Ball
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1094,8 +1094,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ebdd3611bd6cab46b13ac2e7ae24808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  circle1: {fileID: 1346454328}
-  circle2: {fileID: 3534791}
+  ball1: {fileID: 1346454328}
+  ball2: {fileID: 3534791}
 --- !u!4 &1168733535
 Transform:
   m_ObjectHideFlags: 0
@@ -1123,7 +1123,7 @@ GameObject:
   - component: {fileID: 1204617459}
   - component: {fileID: 1204617458}
   m_Layer: 0
-  m_Name: CircleHolderSpawner
+  m_Name: BoxSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1509,7 +1509,7 @@ PrefabInstance:
     - target: {fileID: 7740309805305424107, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_Name
-      value: CircleHolder
+      value: Box
       objectReference: {fileID: 0}
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
@@ -1633,7 +1633,7 @@ PrefabInstance:
     - target: {fileID: 2046569712763434349, guid: 79b71cad90efd3f40b6d2b1461c7063c,
         type: 3}
       propertyPath: m_Name
-      value: StartCircleHolder
+      value: StartBox
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 79b71cad90efd3f40b6d2b1461c7063c, type: 3}
@@ -1644,15 +1644,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168733535}
     m_Modifications:
-    - target: {fileID: 1454950020429495649, guid: b40a1666f343cde4f8241be76980fbfa,
-        type: 3}
-      propertyPath: twoCircleController
-      value: 
-      objectReference: {fileID: 1168733534}
     - target: {fileID: 4911763448061619815, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: m_Name
-      value: Circle1
+      value: Ball1
       objectReference: {fileID: 0}
     - target: {fileID: 4911763448061619818, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
@@ -1711,7 +1706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984888788667725069, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
-      propertyPath: twoCircleController
+      propertyPath: twoBallController
       value: 
       objectReference: {fileID: 1168733534}
     m_RemovedComponents: []
@@ -1726,7 +1721,7 @@ PrefabInstance:
     - target: {fileID: 4911763448061619815, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
       propertyPath: m_Name
-      value: Circle2
+      value: Ball2
       objectReference: {fileID: 0}
     - target: {fileID: 4911763448061619818, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
@@ -1785,12 +1780,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4984888788667725069, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
-      propertyPath: twoCircleController
-      value: 
-      objectReference: {fileID: 1168733534}
-    - target: {fileID: 5880079621157232779, guid: f91220a09d3366e468dd73560329188a,
-        type: 3}
-      propertyPath: twoCircleController
+      propertyPath: twoBallController
       value: 
       objectReference: {fileID: 1168733534}
     m_RemovedComponents: []

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class CircleStop : TruongMonoBehaviour
+public class BallStop : TruongMonoBehaviour
 {
     [SerializeField] protected bool isPause;
     public bool IsPause => isPause;

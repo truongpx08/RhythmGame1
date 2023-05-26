@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class CircleRotateAroundCenter : TwoCircleAbstract
+public class BallRotateAroundCenter : TwoCircleAbstract
 {
     [SerializeField] protected float angle;
     [SerializeField] protected float radius;
