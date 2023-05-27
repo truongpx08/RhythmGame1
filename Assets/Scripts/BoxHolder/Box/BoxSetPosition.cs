@@ -14,6 +14,11 @@ public class BoxSetPosition : BoxAbstract
         direction = Direction.Up;
     }
 
+    public void SetPosition(Vector3 position)
+    {
+        transform.parent.transform.position = position;
+    }
+
     public void SetPosition(Box lastBox, float spacing)
     {
         direction = GetDirection(lastBox);
@@ -37,7 +42,7 @@ public class BoxSetPosition : BoxAbstract
                 throw new ArgumentOutOfRangeException();
         }
 
-        transform.parent.transform.position = lastCirclePosition + bonusPos;
+        SetPosition(lastCirclePosition + bonusPos);
     }
 
     protected virtual Direction GetDirection(Box lastBox)

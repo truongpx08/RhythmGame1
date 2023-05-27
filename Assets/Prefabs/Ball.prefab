@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 40221395}
+  - component: {fileID: 4107668193205599736}
   m_Layer: 0
-  m_Name: BallRotateAroundCenter
+  m_Name: BallAutoRotateAroundCenter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -26,10 +27,75 @@ Transform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 1815778441424514342}
+  - {fileID: 2604749057920748266}
   m_Father: {fileID: 270515947648477360}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &4107668193205599736
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 40221394}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: def7551c3c9be7947af39fd21d443026, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  twoBall: {fileID: 0}
+  ballStopRotate: {fileID: 7466736140893823426}
+  ballContinueRotate: {fileID: 6528393968171968770}
+  angle: -1.5707964
+  radius: 0.4
+  speed: 4
+  isRotating: 0
+  canRotate: 0
+--- !u!1 &133767260464823080
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9219617946441984811}
+  - component: {fileID: 7969777794251320365}
+  m_Layer: 0
+  m_Name: CalculateDirection
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &9219617946441984811
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133767260464823080}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2604749057920748266}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7969777794251320365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 133767260464823080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbe7b7be906ad2d47bb49b3fc73b73a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &270515947648477373
 GameObject:
   m_ObjectHideFlags: 0
@@ -60,9 +126,7 @@ Transform:
   m_Children:
   - {fileID: 4254221406118869180}
   - {fileID: 40221395}
-  - {fileID: 1815778441424514342}
   - {fileID: 4821617628400185921}
-  - {fileID: 2604749057920748266}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,8 +143,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   twoBall: {fileID: 0}
-  ballRotateAroundCenter: {fileID: 0}
-  ballStop: {fileID: 0}
+  ballAutoRotateAroundCenter: {fileID: 0}
+  ballTransferToBox: {fileID: 7496602671284215496}
 --- !u!1 &1956275245550509335
 GameObject:
   m_ObjectHideFlags: 0
@@ -110,7 +174,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 270515947648477360}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7496602671284215496
 MonoBehaviour:
@@ -126,6 +190,49 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   twoBall: {fileID: 0}
   ball: {fileID: 0}
+--- !u!1 &3059234544996167925
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 892506738336344475}
+  - component: {fileID: 6122801162658251589}
+  m_Layer: 0
+  m_Name: CalculateNewAngle
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &892506738336344475
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059234544996167925}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2604749057920748266}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6122801162658251589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3059234544996167925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdff7a470c479c42997f7258d9fd2ef, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4106167975287793804
 GameObject:
   m_ObjectHideFlags: 0
@@ -137,7 +244,7 @@ GameObject:
   - component: {fileID: 1815778441424514342}
   - component: {fileID: 7466736140893823426}
   m_Layer: 0
-  m_Name: BallStop
+  m_Name: BallStopRotate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -151,11 +258,11 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4106167975287793804}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 270515947648477360}
-  m_RootOrder: 2
+  m_Father: {fileID: 40221395}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &7466736140893823426
 MonoBehaviour:
@@ -169,7 +276,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76ff7c3f0d143cc4b852ff8ad6aff26c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isPause: 0
+  ballAutoRotateAroundCenter: {fileID: 0}
 --- !u!1 &4254221406118869169
 GameObject:
   m_ObjectHideFlags: 0
@@ -275,12 +382,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5092607206876201220}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 270515947648477360}
-  m_RootOrder: 4
+  m_Children:
+  - {fileID: 9219617946441984811}
+  - {fileID: 892506738336344475}
+  m_Father: {fileID: 40221395}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &6528393968171968770
 MonoBehaviour:
@@ -294,3 +403,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50e7c2f11ec14c4189c124fae5b646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  ballAutoRotateAroundCenter: {fileID: 4107668193205599736}
+  calculateDirection: {fileID: 7969777794251320365}
+  calculateNewAngle: {fileID: 0}

@@ -5,34 +5,28 @@ using UnityEngine.Serialization;
 
 public class Ball : TwoBallAbstract
 {
-    [SerializeField] protected BallRotateAroundCenter ballRotateAroundCenter;
-    public BallRotateAroundCenter BallRotateAroundCenter => ballRotateAroundCenter;
-    [SerializeField] protected BallStop ballStop;
-    public BallStop BallStop => ballStop;
+    [SerializeField] protected BallAutoRotateAroundCenter ballAutoRotateAroundCenter;
+    public BallAutoRotateAroundCenter BallAutoRotateAroundCenter => ballAutoRotateAroundCenter;
 
-    [SerializeField] protected BallContinueRotate ballContinueRotate;
-    public BallContinueRotate BallContinueRotate => ballContinueRotate;
+    [SerializeField] protected BallTransferToBox ballTransferToBox;
+    public BallTransferToBox BallTransferToBox => ballTransferToBox;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        LoadBall1TransferToBox();
-        LoadBallStop();
-        LoadBallContinueRotate(); 
+        LoadBallRotateAroundCenter();
+        LoadBallTransferToBox();
     }
 
-    protected void LoadBall1TransferToBox()
+    protected void LoadBallRotateAroundCenter()
     {
-        ballRotateAroundCenter = transform.Find("BallRotateAroundCenter").GetComponent<BallRotateAroundCenter>();
+        ballAutoRotateAroundCenter =
+            transform.Find("BallAutoRotateAroundCenter").GetComponent<BallAutoRotateAroundCenter>();
     }
 
-    protected void LoadBallStop()
-    {
-        ballStop = transform.Find("BallStop").GetComponent<BallStop>();
-    }
 
-    protected void LoadBallContinueRotate()
+    private void LoadBallTransferToBox()
     {
-        ballContinueRotate = transform.Find("BallContinueRotate").GetComponent<BallContinueRotate>();
+        ballTransferToBox = transform.Find("BallTransferToBox").GetComponent<BallTransferToBox>();
     }
 }

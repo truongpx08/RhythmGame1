@@ -3,13 +3,17 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class Ball1RotateAroundCenter : BallRotateAroundCenter
+public class Ball1AutoRotateAroundCenter : BallAutoRotateAroundCenter
 {
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        canRotate = false;
+    }
+
     protected override void Rotate()
     {
-        var isPause = twoBall.Ball1.BallStop.IsPause;
-        isRotating = !isPause;
-        if (isPause) return;
+        if (!canRotate) return;
         RotateAroundCenter(twoBall.Ball2.transform.position);
     }
 }

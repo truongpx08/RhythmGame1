@@ -20,11 +20,5 @@ public class BoxContainBall : BoxAbstract
     public void Contain()
     {
         isContained = true;
-
-        var nextBox =
-            BoxSpawner.Instance.Boxes.Find(b =>
-                int.Parse(b.Id.text) ==
-                int.Parse(BoxHolder.Instance.BoxSetBoxCanContainBall.CurrentBoxCanContainBall.Id.text) + 1);
-        BoxHolder.Instance.BoxSetBoxCanContainBall.SetBoxCanContainBall(nextBox);
     }
 }

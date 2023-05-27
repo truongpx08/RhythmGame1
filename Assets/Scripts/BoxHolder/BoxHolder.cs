@@ -6,9 +6,10 @@ using UnityEngine.Serialization;
 public class BoxHolder : TruongMonoBehaviour
 {
     public static BoxHolder Instance { get; private set; }
-    [SerializeField] protected BoxSetBoxCanContainBall boxSetBoxCanContainBall;
-    public BoxSetBoxCanContainBall BoxSetBoxCanContainBall => boxSetBoxCanContainBall;
-
+    [SerializeField] protected BoxHolderSetTargetBox boxHolderSetTargetBox;
+    public BoxHolderSetTargetBox BoxHolderSetTargetBox => boxHolderSetTargetBox;
+    [SerializeField] protected BoxHolderSetCurrentBox boxHolderSetCurrentBox;
+    public BoxHolderSetCurrentBox BoxHolderSetCurrentBox => boxHolderSetCurrentBox;
 
     protected override void Awake()
     {
@@ -21,10 +22,17 @@ public class BoxHolder : TruongMonoBehaviour
     {
         base.LoadComponents();
         LoadBoxSetBoxCanContainBall();
+        LoadBoxHolderSetCurrentBox();
+    }
+
+    protected void LoadBoxHolderSetCurrentBox()
+    {
+        boxHolderSetCurrentBox = transform.Find("BoxHolderSetCurrentBox").GetComponent<BoxHolderSetCurrentBox>();
     }
 
     protected void LoadBoxSetBoxCanContainBall()
     {
-        boxSetBoxCanContainBall = transform.Find("BoxSetBoxCanContainBall").GetComponent<BoxSetBoxCanContainBall>();
+        boxHolderSetTargetBox =
+            transform.Find("BoxHolderSetTargetBox").GetComponent<BoxHolderSetTargetBox>();
     }
 }

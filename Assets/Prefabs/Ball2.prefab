@@ -1,18 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &652199536
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92206432273614814}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6f2d27bec7a823b44a709fc663250bb2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &5880079621157232779
+--- !u!114 &3538287966077633320
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -25,37 +13,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   twoBall: {fileID: 0}
+  ballStopRotate: {fileID: 2338541327770429208}
+  ballContinueRotate: {fileID: 2121905427706736600}
   angle: -1.5707964
   radius: 0.4
   speed: 4
   isRotating: 0
---- !u!114 &4670352516272467478
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6687023010709380045}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5cfbb98648c3eae49a7b44d8a678e4d8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  twoBall: {fileID: 0}
-  ball: {fileID: 4984888788667725069}
---- !u!114 &5109188289707944417
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9157801576465870422}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 14733a586193de34bb5393bb2242fab9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isPause: 0
+  canRotate: 1
 --- !u!1001 &5182242423956276954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -65,43 +29,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
         type: 3}
-      propertyPath: stop
+      propertyPath: ballAutoRotateAroundCenter
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: ballStop
-      value: 
-      objectReference: {fileID: 5109188289707944417}
-    - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: circleStop
-      value: 
-      objectReference: {fileID: 5109188289707944417}
-    - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: ballContinueRotate
-      value: 
-      objectReference: {fileID: 652199536}
-    - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: rotateAroundCenter
-      value: 
-      objectReference: {fileID: 5880079621157232779}
-    - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: ballRotateAroundCenter
-      value: 
-      objectReference: {fileID: 5880079621157232779}
-    - target: {fileID: -9023269759264590889, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: circleRotateAroundCenter
-      value: 
-      objectReference: {fileID: 5880079621157232779}
-    - target: {fileID: 40221394, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
-      propertyPath: m_Name
-      value: BallRotateAroundCenter
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 3538287966077633320}
     - target: {fileID: 270515947648477360, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
         type: 3}
       propertyPath: m_RootOrder
@@ -162,35 +92,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball2
       objectReference: {fileID: 0}
-    - target: {fileID: 4106167975287793804, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: m_Name
-      value: BallStop
-      objectReference: {fileID: 0}
-    - target: {fileID: 7466736140893823426, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: isPause
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
         type: 3}
       propertyPath: ball
       value: 
       objectReference: {fileID: 4984888788667725069}
-    - target: {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: ballController
-      value: 
-      objectReference: {fileID: 4984888788667725069}
-    - target: {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-        type: 3}
-      propertyPath: requiteSpacing
-      value: 0.2
-      objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 7466736140893823426, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
-    - {fileID: 6528393968171968770, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
-    - {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
+    - {fileID: 4107668193205599736, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c90d8cbb3251a964e9d7d38c6d7ee03a, type: 3}
 --- !u!114 &4984888788667725069 stripped
 MonoBehaviour:
@@ -210,21 +118,27 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 5182242423956276954}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &9157801576465870422 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4106167975287793804, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+--- !u!114 &2338541327770429208 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7466736140893823426, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
     type: 3}
   m_PrefabInstance: {fileID: 5182242423956276954}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &6687023010709380045 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1956275245550509335, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76ff7c3f0d143cc4b852ff8ad6aff26c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2121905427706736600 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6528393968171968770, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
     type: 3}
   m_PrefabInstance: {fileID: 5182242423956276954}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &92206432273614814 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5092607206876201220, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
-    type: 3}
-  m_PrefabInstance: {fileID: 5182242423956276954}
-  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e50e7c2f11ec14c4189c124fae5b646b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -37,20 +37,24 @@ public class BoxSpawner : Spawner
     [Button]
     public void SpawnBoxes()
     {
-        var isStart = count == 0;
         var lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
         for (var i = 0; i < amount; i++)
         {
-            var newBox = Spawn("Box", new Vector3(0, 0.4f, 0), Quaternion.identity)
+            var newBox = Spawn("Box", new Vector3(0, 0, 0), Quaternion.identity)
                 .GetComponent<Box>();
-            if (i == 0 && isStart)
-                InitBox();
-            else
-                InitFollowLastBox();
-
-            if (i == 0)
+            switch (count)
             {
-                BoxHolder.Instance.BoxSetBoxCanContainBall.SetBoxCanContainBall(newBox);
+                case 0:
+                    InitStartBox();
+                    BoxHolder.Instance.BoxHolderSetCurrentBox.SetCurrentBox(newBox);
+                    break;
+                case 1:
+                    InitFollowLastBox();
+                    BoxHolder.Instance.BoxHolderSetTargetBox.SetTargetBox(newBox);
+                    break;
+                default:
+                    InitFollowLastBox();
+                    break;
             }
 
             lastBox = newBox;
@@ -61,6 +65,12 @@ public class BoxSpawner : Spawner
             {
                 newBox.BoxSetId.SetId(count);
                 newBox.BoxSetColorModel.SetColor(Color.white);
+            }
+
+            void InitStartBox()
+            {
+                InitBox();
+                newBox.BoxSetPosition.SetPosition(Vector3.zero);
             }
 
             void InitFollowLastBox()

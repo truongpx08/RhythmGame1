@@ -5,8 +5,7 @@ using UnityEngine.Serialization;
 
 public abstract class BallAbstract : TwoBallAbstract
 {
-    [FormerlySerializedAs("ballController")] [SerializeField]
-    protected Ball ball;
+    [SerializeField] protected Ball ball;
 
     protected override void LoadComponents()
     {
