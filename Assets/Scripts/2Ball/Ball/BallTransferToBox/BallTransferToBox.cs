@@ -11,8 +11,4 @@ public class BallTransferToBox : BallAbstract
     {
         transform.parent.transform.position = boxTarget.transform.position;
     }
-    protected bool IsPass(Vector3 ballPosition, Vector3 boxPosition)
-    {
-        return Vector3.Distance(ballPosition, boxPosition) < PlayController.Instance.Config.distanceLimit;
-    }
 }

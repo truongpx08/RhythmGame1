@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public abstract class Spawner : TruongMonoBehaviour
 {
@@ -68,10 +70,22 @@ public abstract class Spawner : TruongMonoBehaviour
         }
 
         var newPrefab = GetObjectFromPool(prefab);
-        newPrefab.SetPositionAndRotation(spawnPosition, spawnRotation);
+        SetPrefab(newPrefab);
+        return newPrefab;
+    }
+
+    protected Transform SpawnRandomPrefab()
+    {
+        var newPrefab = GetObjectFromPrefab();
+        SetPrefab(newPrefab);
+        return newPrefab;
+    }
+
+    protected void SetPrefab(Transform newPrefab)
+    {
+        // newPrefab.SetPositionAndRotation(spawnPosition, spawnRotation);
         newPrefab.parent = holder;
         newPrefab.gameObject.SetActive(true);
-        return newPrefab;
     }
 
     protected internal void Despawn(Transform obj)
@@ -92,6 +106,13 @@ public abstract class Spawner : TruongMonoBehaviour
         Transform newPrefab = Instantiate(prefab);
         newPrefab.name = prefab.name;
         return newPrefab;
+    }
+
+    private Transform GetObjectFromPrefab()
+    {
+        int index = Random.Range(0, prefabs.Count);
+        var obj = prefabs[index];
+        return Instantiate(obj);
     }
 
     private Transform GetPrefabByName(string prefabName)

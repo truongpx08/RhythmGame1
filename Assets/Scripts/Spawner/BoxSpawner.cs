@@ -40,7 +40,7 @@ public class BoxSpawner : Spawner
         var lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
         for (var i = 0; i < amount; i++)
         {
-            var newBox = Spawn("Box", new Vector3(0, 0, 0), Quaternion.identity)
+            var newBox = SpawnRandomPrefab()
                 .GetComponent<Box>();
             switch (count)
             {
@@ -64,7 +64,7 @@ public class BoxSpawner : Spawner
             void InitBox()
             {
                 newBox.BoxSetId.SetId(count);
-                newBox.BoxSetColorModel.SetColor(Color.white);
+                // newBox.BoxSetColorModel.SetColor(Color.white);
             }
 
             void InitStartBox()
@@ -80,35 +80,4 @@ public class BoxSpawner : Spawner
             }
         }
     }
-
-
-    // public void OnPlay()
-    // {
-    //     RemoveHolders();
-    //     currentHolder = null;
-    //     SpawnHolders();
-    // }
-    //
-
-
-    // public void UpdateCurrentHolder()
-    // {
-    //     currentHolder.Complete();
-    //     var nextHolderIndex = holders.IndexOf(currentHolder) + 1;
-    //     var isLastHolderInPool = nextHolderIndex == holders.Count;
-    //     if (isLastHolderInPool)
-    //     {
-    //         SpawnHolders();
-    //     }
-    //     else
-    //     {
-    //         currentHolder = holders[nextHolderIndex];
-    //         Debug.Log($"currentHoop = {currentHolder.name}");
-    //     }
-    // }
-
-    // public Holder GetCurrentHolder()
-    // {
-    //     return currentHolder;
-    // }
 }

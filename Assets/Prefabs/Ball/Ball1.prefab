@@ -92,6 +92,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ball1
       objectReference: {fileID: 0}
+    - target: {fileID: 6528393968171968770, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: calculateNewAngle
+      value: 
+      objectReference: {fileID: 1374593152832734623}
+    - target: {fileID: 6528393968171968770, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: ballAutoRotateAroundCenter
+      value: 
+      objectReference: {fileID: 3441734946145463947}
+    - target: {fileID: 7466736140893823426, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: ballAutoRotateAroundCenter
+      value: 
+      objectReference: {fileID: 3441734946145463947}
     - target: {fileID: 7496602671284215496, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
         type: 3}
       propertyPath: ball
@@ -140,5 +155,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e50e7c2f11ec14c4189c124fae5b646b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1374593152832734623 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6122801162658251589, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+    type: 3}
+  m_PrefabInstance: {fileID: 5182242423956276954}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cdff7a470c479c42997f7258d9fd2ef, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

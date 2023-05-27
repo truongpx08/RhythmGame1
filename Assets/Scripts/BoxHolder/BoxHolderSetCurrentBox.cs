@@ -14,5 +14,6 @@ public class BoxHolderSetCurrentBox : MonoBehaviour
     public void SetCurrentBox(Box newBox)
     {
         currentBox = newBox;
+        CameraController.Instance.Follow(currentBox.transform);        
     }
 }
