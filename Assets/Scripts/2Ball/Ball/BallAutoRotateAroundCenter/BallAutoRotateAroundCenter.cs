@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
@@ -86,9 +87,15 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
 
     protected void CalculatorAngle()
     {
-        if (twoBall.TwoBallReverser.IsReverse)
-            angle += speed * Time.deltaTime;
+        if (twoBall.TwoBallAbilities.TwoBallReverser.IsReverse)
+            angle += GetCurrentSpeed() * Time.deltaTime;
         else
-            angle -= speed * Time.deltaTime;
+            angle -= GetCurrentSpeed() * Time.deltaTime;
+    }
+
+    protected float GetCurrentSpeed()
+    {
+        return speed * twoBall.TwoBallAbilities.TwoBallSpeedUp.XSpeed *
+               twoBall.TwoBallAbilities.TwoBallSpeedDown.XSpeed;
     }
 }

@@ -3,20 +3,22 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class TwoBallReverser : TruongMonoBehaviour
+public class TwoBallReverser : TwoBallAbility
 {
+    [SerializeField] protected bool isReverse;
+    public bool IsReverse => isReverse;
+
     protected override void ResetValue()
     {
         base.ResetValue();
         isReverse = false;
     }
 
-    [SerializeField] protected bool isReverse;
-    public bool IsReverse => isReverse;
 
     [Button]
-    public void Reverse()
+    public override void Effect()
     {
+        base.Effect();
         isReverse = !isReverse;
     }
 }

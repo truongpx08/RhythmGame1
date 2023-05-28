@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BoxDoNotAllowContainBall : PassABoxChecker
+public class BoxDoNotAllowContainBall : BoxAbstract 
 {
     [SerializeField] private bool canStartCalculation;
 
@@ -22,7 +22,7 @@ public class BoxDoNotAllowContainBall : PassABoxChecker
 
     protected void CalculatorMissing()
     {
-        if (!box.BoxAllowContainBall.IsAllow || box.BoxContainBall.IsContained) return;
+        if (!box.BoxAllowContainBall.IsAllow || box.BoxContainBall.IsContained || int.Parse(box.Id.text) == 1) return;
         if (!canStartCalculation)
         {
             if (CanPassABox(TwoBall.Instance.GetBallRotating(), BoxHolder.Instance.BoxHolderSetTargetBox.TargetBox))
@@ -42,6 +42,5 @@ public class BoxDoNotAllowContainBall : PassABoxChecker
     public void DoNotAllow()
     {
         box.BoxAllowContainBall.DoNotAllow();
-        Debug.Log("DoNotAllowa");
     }
 }

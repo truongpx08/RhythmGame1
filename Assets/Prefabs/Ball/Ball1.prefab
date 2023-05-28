@@ -20,6 +20,7 @@ MonoBehaviour:
   speed: 4
   isRotating: 0
   canRotate: 0
+  center: {fileID: 0}
 --- !u!1001 &5182242423956276954
 PrefabInstance:
   m_ObjectHideFlags: 0

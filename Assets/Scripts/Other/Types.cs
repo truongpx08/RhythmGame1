@@ -21,4 +21,6 @@ public class BoxName
 {
     public const string NormalBox = "NormalBox";
     public const string ReverseBox = "ReverseBox";
+    public const string SpeedUpBox = "SpeedUpBox";
+    public const string SpeedDownBox = "SpeedDownBox";
 }

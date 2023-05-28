@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class PassABoxChecker : BoxAbstract
+public abstract class PassABoxChecker : TruongMonoBehaviour
 {
     public bool IsPassABox(Ball ballRotating, Box targetBox)
     {

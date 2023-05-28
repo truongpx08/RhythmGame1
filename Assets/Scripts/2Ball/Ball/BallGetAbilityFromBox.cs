@@ -8,12 +8,19 @@ public class BallGetAbilityFromBox : TwoBallAbstract
     [Button]
     public void GetAbilityFromBox(Box targetBox)
     {
-        if (targetBox.name == BoxName.NormalBox)
+        switch (targetBox.name)
         {
-        }
-        else if (targetBox.name == BoxName.ReverseBox)
-        {
-            twoBall.TwoBallReverser.Reverse();
+            case BoxName.NormalBox:
+                break;
+            case BoxName.ReverseBox:
+                twoBall.TwoBallAbilities.TwoBallReverser.Effect();
+                break;
+            case BoxName.SpeedUpBox:
+                twoBall.TwoBallAbilities.TwoBallSpeedUp.Effect();
+                break;
+            case BoxName.SpeedDownBox:
+                twoBall.TwoBallAbilities.TwoBallSpeedDown.Effect();
+                break;
         }
     }
 }

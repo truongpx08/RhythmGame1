@@ -8,6 +8,13 @@ public class CompleteCkecker : PassABoxChecker
 {
     [SerializeField] protected GameLoop gameLoop;
     [SerializeField] protected GameOver gameOver;
+    [SerializeField] private bool isTest;
+
+    protected override void ResetValue()
+    {
+        base.ResetValue();
+        isTest = false;
+    }
 
     protected override void LoadComponents()
     {
@@ -37,13 +44,12 @@ public class CompleteCkecker : PassABoxChecker
         var twoBall = TwoBall.Instance;
         var ballRotating = TwoBall.Instance.GetBallRotating();
         var targetBox = BoxHolder.Instance.BoxHolderSetTargetBox.TargetBox;
-        if (IsPassABox(ballRotating, targetBox))
-        {
-            gameLoop.LoopGame(ballRotating, targetBox);
-        }
-        else
+        if (!IsPassABox(ballRotating, targetBox) && !isTest)
         {
             gameOver.OverGame();
+            return;
         }
+
+        gameLoop.LoopGame(ballRotating, targetBox);
     }
 }

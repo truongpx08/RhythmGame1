@@ -81,7 +81,7 @@ public abstract class Spawner : TruongMonoBehaviour
         prefabs.ForEach(p => p.gameObject.SetActive(true));
     }
 
-    protected Transform Spawn(string prefabName, Vector3 spawnPosition, Quaternion spawnRotation)
+    protected Transform Spawn(string prefabName)
     {
         var prefab = GetPrefabByName(prefabName);
         if (prefab == null)

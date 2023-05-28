@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 40221395}
-  - component: {fileID: 4107668193205599736}
   m_Layer: 0
   m_Name: BallAutoRotateAroundCenter
   m_TagString: Untagged
@@ -33,27 +32,6 @@ Transform:
   m_Father: {fileID: 270515947648477360}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4107668193205599736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 40221394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: def7551c3c9be7947af39fd21d443026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  twoBall: {fileID: 0}
-  ballStopRotate: {fileID: 7466736140893823426}
-  ballContinueRotate: {fileID: 6528393968171968770}
-  ballReverser: {fileID: 0}
-  angle: -1.5707964
-  radius: 0.4
-  speed: 4
-  isRotating: 0
-  canRotate: 0
 --- !u!1 &133767260464823080
 GameObject:
   m_ObjectHideFlags: 0
@@ -145,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   twoBall: {fileID: 0}
-  ballAutoRotateAroundCenter: {fileID: 4107668193205599736}
+  ballAutoRotateAroundCenter: {fileID: 0}
   ballTransferToBox: {fileID: 7496602671284215496}
   ballGetAbilityFromBox: {fileID: 4689500701558548364}
 --- !u!1 &1956275245550509335
@@ -192,7 +170,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   twoBall: {fileID: 0}
-  ball: {fileID: 0}
+  ball: {fileID: -9023269759264590889}
 --- !u!1 &3059234544996167925
 GameObject:
   m_ObjectHideFlags: 0
@@ -406,7 +384,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e50e7c2f11ec14c4189c124fae5b646b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ballAutoRotateAroundCenter: {fileID: 4107668193205599736}
+  ballAutoRotateAroundCenter: {fileID: 4107668193205599736, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+    type: 3}
   calculateDirection: {fileID: 7969777794251320365}
   calculateNewAngle: {fileID: 0}
 --- !u!1 &8375029991001154495
@@ -453,4 +432,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   twoBall: {fileID: 0}
-  ball: {fileID: -9023269759264590889}
