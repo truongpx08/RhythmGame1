@@ -19,8 +19,6 @@ public class Box : TruongMonoBehaviour
     public BoxSetColorModel BoxSetColorModel => boxSetColorModel;
     [SerializeField] protected BoxAllowContainBall boxAllowContainBall;
     public BoxAllowContainBall BoxAllowContainBall => boxAllowContainBall;
-    [SerializeField] protected BoxContainBall boxContainBall;
-    public BoxContainBall BoxContainBall => boxContainBall;
     
     protected override void LoadComponents()
     {
@@ -31,7 +29,6 @@ public class Box : TruongMonoBehaviour
         LoadBoxSetId();
         LoadBoxSetColorModel();
         LoadBoxAllowContainBall();
-        LoadBoxContainBall();
     }
 
 
@@ -65,11 +62,5 @@ public class Box : TruongMonoBehaviour
     {
         boxAllowContainBall =
             transform.Find("BoxAllowContainBall").GetComponent<BoxAllowContainBall>();
-    }
-
-    protected void LoadBoxContainBall()
-    {
-        boxContainBall =
-            transform.Find("BoxContainBall").GetComponent<BoxContainBall>();
     }
 }

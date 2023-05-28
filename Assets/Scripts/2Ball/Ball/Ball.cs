@@ -10,12 +10,20 @@ public class Ball : TwoBallAbstract
 
     [SerializeField] protected BallTransferToBox ballTransferToBox;
     public BallTransferToBox BallTransferToBox => ballTransferToBox;
+    [SerializeField] protected BallGetAbilityFromBox ballGetAbilityFromBox;
+    public BallGetAbilityFromBox BallGetAbilityFromBox => ballGetAbilityFromBox;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadBallRotateAroundCenter();
         LoadBallTransferToBox();
+        LoadBallGetAbilityFromBox();
+    }
+
+    protected void LoadBallGetAbilityFromBox()
+    {
+        ballGetAbilityFromBox = transform.Find("BallGetAbilityFromBox").GetComponent<BallGetAbilityFromBox>();
     }
 
     protected void LoadBallRotateAroundCenter()

@@ -11,6 +11,11 @@ public class TwoBall : TruongMonoBehaviour
     [SerializeField] protected Ball ball2;
     public Ball Ball2 => ball2;
 
+    [FormerlySerializedAs("ballReverser")] [SerializeField]
+    protected TowBallReverser towBallReverser;
+
+    public TowBallReverser TowBallReverser => towBallReverser;
+
     protected override void Awake()
     {
         base.Awake();
@@ -23,5 +28,11 @@ public class TwoBall : TruongMonoBehaviour
         base.LoadComponents();
         ball1 = transform.Find("Ball1").GetComponent<Ball>();
         ball2 = transform.Find("Ball2").GetComponent<Ball>();
+        LoadBallReverser();
+    }
+
+    protected void LoadBallReverser()
+    {
+        towBallReverser = transform.Find("TwoBallReverser").GetComponent<TowBallReverser>();
     }
 }

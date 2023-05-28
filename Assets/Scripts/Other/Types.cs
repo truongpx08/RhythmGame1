@@ -15,3 +15,10 @@ public enum Direction
     Left,
     Right
 }
+
+[Serializable]
+public class BoxName
+{
+    public const string NormalBox = "NormalBox";
+    public const string ReverseBox = "ReverseBox";
+}

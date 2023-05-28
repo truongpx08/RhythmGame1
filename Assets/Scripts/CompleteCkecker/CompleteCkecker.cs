@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class CompleteCkecker : TruongMonoBehaviour
+public class CompleteCkecker : PassABoxChecker  
 {
     [SerializeField] protected GameLoop gameLoop;
     [SerializeField] protected GameOver gameOver;
@@ -47,10 +47,5 @@ public class CompleteCkecker : TruongMonoBehaviour
         }
     }
 
-    protected bool IsPassABox(Ball ballRotating, Box targetBox)
-    {
-        Vector3 ballPosition = ballRotating.transform.position;
-        Vector3 boxPosition = targetBox.transform.position;
-        return Vector3.Distance(ballPosition, boxPosition) < PlayController.Instance.Config.distanceLimit;
-    }
+    
 }

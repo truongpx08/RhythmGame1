@@ -48,9 +48,24 @@ public abstract class Spawner : TruongMonoBehaviour
             prefabs.Add(prefab);
         }
 
+        CheckDuplicatePrefab();
+
         if (Application.isPlaying)
         {
             Debug.LogWarning("Since prefabs is empty, you need to reset it at inspector for initialization.");
+        }
+    }
+
+    protected void CheckDuplicatePrefab()
+    {
+        var duplicates = prefabs.GroupBy(x => x.name)
+            .Where(g => g.Count() > 1)
+            .Select(g => g.Key);
+
+        foreach (var prefabName in duplicates)
+        {
+            prefabs.Remove(prefabs.Find(p => p.name == prefabName));
+            Debug.LogError($"Only one {prefabName} is allowed in prefabs, Has remove a {prefabName}");
         }
     }
 
@@ -58,6 +73,12 @@ public abstract class Spawner : TruongMonoBehaviour
     private void HidePrefab()
     {
         prefabs.ForEach(p => p.gameObject.SetActive(false));
+    }
+
+    [Button]
+    private void ShowPrefab()
+    {
+        prefabs.ForEach(p => p.gameObject.SetActive(true));
     }
 
     protected Transform Spawn(string prefabName, Vector3 spawnPosition, Quaternion spawnRotation)
@@ -74,9 +95,16 @@ public abstract class Spawner : TruongMonoBehaviour
         return newPrefab;
     }
 
-    protected Transform SpawnRandomPrefab()
+    protected Transform Spawn()
     {
-        var newPrefab = GetObjectFromPrefab();
+        var prefab = GetRandomPrefab();
+        if (prefab == null)
+        {
+            Debug.LogError($"No prefab found");
+            return null;
+        }
+
+        var newPrefab = GetObjectFromPool(prefab);
         SetPrefab(newPrefab);
         return newPrefab;
     }
@@ -103,20 +131,25 @@ public abstract class Spawner : TruongMonoBehaviour
             return obj;
         }
 
-        Transform newPrefab = Instantiate(prefab);
-        newPrefab.name = prefab.name;
-        return newPrefab;
+        return InstantiateObject(prefab);
     }
 
-    private Transform GetObjectFromPrefab()
+
+    protected Transform InstantiateObject(Transform obj)
     {
-        int index = Random.Range(0, prefabs.Count);
-        var obj = prefabs[index];
-        return Instantiate(obj);
+        Transform newPrefab = Instantiate(obj);
+        newPrefab.name = obj.name;
+        return newPrefab;
     }
 
     private Transform GetPrefabByName(string prefabName)
     {
         return prefabs.Find(p => p.name == prefabName);
+    }
+
+    private Transform GetRandomPrefab()
+    {
+        int index = Random.Range(0, prefabs.Count);
+        return prefabs[index];
     }
 }

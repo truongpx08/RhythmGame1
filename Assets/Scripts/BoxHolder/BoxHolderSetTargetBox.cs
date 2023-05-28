@@ -22,7 +22,13 @@ public class BoxHolderSetTargetBox : MonoBehaviour
     {
         BoxHolder.Instance.BoxHolderSetCurrentBox.SetCurrentBox(targetBox);
         var nextBox = GetNextBox();
+        if (nextBox == null)
+        {
+            BoxSpawner.Instance.SpawnBoxes();
+            return;
+        }
         SetTargetBox(nextBox);
+
     }
 
     private Box GetNextBox()

@@ -536,6 +536,50 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 369004693}
   m_CullTransparentMesh: 0
+--- !u!1 &384718036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 384718037}
+  - component: {fileID: 384718038}
+  m_Layer: 0
+  m_Name: TwoBallReverser
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &384718037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384718036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1168733535}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &384718038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384718036}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9b5c0d2062c1c4d46b2030134c5d88d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isReverse: 0
 --- !u!1 &393691539
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,7 +1441,7 @@ GameObject:
   - component: {fileID: 1168733535}
   - component: {fileID: 1168733534}
   m_Layer: 0
-  m_Name: 2Ball
+  m_Name: TowBall
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1417,6 +1461,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball1: {fileID: 1346454328}
   ball2: {fileID: 3534791}
+  towBallReverser: {fileID: 384718038}
 --- !u!4 &1168733535
 Transform:
   m_ObjectHideFlags: 0
@@ -1430,6 +1475,7 @@ Transform:
   m_Children:
   - {fileID: 141543359}
   - {fileID: 892390610}
+  - {fileID: 384718037}
   m_Father: {fileID: 924465444}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1868,21 +1914,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162589044}
     m_Modifications:
-    - target: {fileID: 1938294469266978684, guid: 21fb2953348d6984c866735b01a7314a,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0.17150229
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938294469266978684, guid: 21fb2953348d6984c866735b01a7314a,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.8867924
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938294469266978684, guid: 21fb2953348d6984c866735b01a7314a,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 0.87166685
-      objectReference: {fileID: 0}
     - target: {fileID: 7212270778700506677, guid: 21fb2953348d6984c866735b01a7314a,
         type: 3}
       propertyPath: m_RootOrder

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class BallAutoRotateAroundCenter : TwoBallAbstract
 {
@@ -10,6 +11,8 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
     public BallStopRotate BallStopRotate => ballStopRotate;
     [SerializeField] protected BallContinueRotate ballContinueRotate;
     public BallContinueRotate BallContinueRotate => ballContinueRotate;
+
+
     [SerializeField] protected float angle;
     [SerializeField] protected float radius;
     [SerializeField] protected float speed;
@@ -55,6 +58,7 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
         ballContinueRotate = transform.Find("BallContinueRotate").GetComponent<BallContinueRotate>();
     }
 
+
     [Button]
     public void ResetAngle(float value)
     {
@@ -64,8 +68,8 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
     protected void SetIsRotating()
     {
         isRotating = canRotate;
-    } 
-    
+    }
+
     [Button]
     protected virtual void Rotate()
     {
@@ -74,9 +78,17 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
 
     protected void RotateAroundCenter(Vector3 centerPosition)
     {
-        angle -= speed * Time.deltaTime;
+        CalculatorAngle();
         var x = centerPosition.x + radius * Mathf.Cos(angle);
         var y = centerPosition.y + radius * Mathf.Sin(angle);
         transform.parent.transform.position = new Vector3(x, y, 0);
+    }
+
+    protected void CalculatorAngle()
+    {
+        if (twoBall.TowBallReverser.IsReverse)
+            angle += speed * Time.deltaTime;
+        else
+            angle -= speed * Time.deltaTime;
     }
 }

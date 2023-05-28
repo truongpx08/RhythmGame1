@@ -40,7 +40,7 @@ public class BoxSpawner : Spawner
         var lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
         for (var i = 0; i < amount; i++)
         {
-            var newBox = SpawnRandomPrefab()
+            var newBox = Spawn()
                 .GetComponent<Box>();
             switch (count)
             {
