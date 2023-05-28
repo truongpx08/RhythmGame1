@@ -22,21 +22,26 @@ public class BoxHolderSetTargetBox : MonoBehaviour
     {
         BoxHolder.Instance.BoxHolderSetCurrentBox.SetCurrentBox(targetBox);
         var nextBox = GetNextBox();
-        if (nextBox == null)
-        {
-            BoxSpawner.Instance.SpawnBoxes();
-            return;
-        }
-        SetTargetBox(nextBox);
 
+        SetTargetBox(nextBox);
     }
 
     private Box GetNextBox()
     {
-        var nextBox =
-            BoxSpawner.Instance.Boxes.Find(b =>
-                int.Parse(b.Id.text) ==
-                int.Parse(targetBox.Id.text) + 1);
+        var nextBox = TryGetNextBox();
+        if (nextBox == null)
+        {
+            BoxSpawner.Instance.SpawnBoxes();
+            nextBox = TryGetNextBox();
+        }
+
         return nextBox;
+    }
+
+    private Box TryGetNextBox()
+    {
+        return BoxSpawner.Instance.Boxes.Find(b =>
+            int.Parse(b.Id.text) ==
+            int.Parse(targetBox.Id.text) + 1);
     }
 }
