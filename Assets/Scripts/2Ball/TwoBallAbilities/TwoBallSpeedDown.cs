@@ -10,5 +10,15 @@ public class TwoBallSpeedDown : TwoBallSpeedChange
     {
         base.Effect();
         xSpeed /= 1.5f;
+        if (!isMaxAmount || !TwoBall.Instance.TwoBallAbilities.TwoBallSpeedDown.isMaxAmount) return;
+        Reset();
+    }
+
+    protected void Reset()
+    {
+        ResetAmount();
+        TwoBall.Instance.TwoBallAbilities.TwoBallSpeedUp.ResetAmount();
+        ResetXSpeed();
+        TwoBall.Instance.TwoBallAbilities.TwoBallSpeedUp.ResetXSpeed();
     }
 }

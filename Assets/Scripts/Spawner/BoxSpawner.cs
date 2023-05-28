@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using Pixelplacement;
 using Sirenix.OdinInspector;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class BoxSpawner : Spawner
 {
@@ -37,10 +35,11 @@ public class BoxSpawner : Spawner
     [Button]
     public void SpawnBoxes()
     {
+        AddBoxesToLevelPool();
         var lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
         for (var i = 0; i < amount; i++)
         {
-            var newBox = Spawn()
+            var newBox = SpawnObjFromLevelPool()
                 .GetComponent<Box>();
             switch (count)
             {
@@ -79,5 +78,77 @@ public class BoxSpawner : Spawner
                 newBox.BoxSetPosition.SetPosition(lastBox, spacing);
             }
         }
+    }
+
+    [SerializeField] protected List<string> boxLevelPool = new List<string>();
+
+    protected void AddBoxesToLevelPool()
+    {
+        boxLevelPool.Clear();
+        for (int index = 0; index < 15; index++)
+        {
+            switch (index)
+            {
+                case 0:
+                case 3:
+                case 4:
+                    AddBoxToPool(BoxName.ReverseBox);
+                    break;
+                case 1:
+                    AddBoxToPool(BoxName.SpeedUpBox);
+                    break;
+                case 2:
+                    AddBoxToPool(BoxName.SpeedDownBox);
+                    break;
+                default:
+                    AddBoxToPool(BoxName.NormalBox);
+                    break;
+            }
+        }
+    }
+
+
+    protected void AddBoxToPool(string boxName)
+    {
+        if (CanAddBox(boxName))
+            boxLevelPool.Add(boxName);
+    }
+
+    protected bool CanAddBox(string targetBox)
+    {
+        var value = false;
+        switch (targetBox)
+        {
+            case BoxName.NormalBox:
+                value = true;
+                break;
+            case BoxName.ReverseBox:
+                value = true;
+                break;
+            case BoxName.SpeedUpBox:
+                value = TwoBall.Instance.TwoBallAbilities.TwoBallSpeedUp.Amount < 3;
+                break;
+            case BoxName.SpeedDownBox:
+                value = TwoBall.Instance.TwoBallAbilities.TwoBallSpeedUp.Amount >
+                        TwoBall.Instance.TwoBallAbilities.TwoBallSpeedDown.Amount &&
+                        TwoBall.Instance.TwoBallAbilities.TwoBallSpeedDown.Amount < 3;
+                break;
+        }
+
+        return value;
+    }
+
+    protected Transform SpawnObjFromLevelPool()
+    {
+        var prefabName = GetRandomPrefabNameInLevelPool();
+        return Spawn(prefabName);
+    }
+
+    protected string GetRandomPrefabNameInLevelPool()
+    {
+        int index = UnityEngine.Random.Range(0, boxLevelPool.Count);
+        string value = boxLevelPool[index];
+        boxLevelPool.Remove(boxLevelPool[index]);
+        return value;
     }
 }

@@ -11,7 +11,12 @@ public abstract class TwoBallSpeedChange : TwoBallAbility
     protected override void ResetValue()
     {
         base.ResetValue();
-        xSpeed = 1f;
+        ResetXSpeed();
+    }
+
+    public void ResetXSpeed()
+    {
+        xSpeed = 1;
     }
 
     [Button]

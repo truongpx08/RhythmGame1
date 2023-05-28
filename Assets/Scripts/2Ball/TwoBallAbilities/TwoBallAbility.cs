@@ -6,11 +6,12 @@ using UnityEngine;
 public abstract class TwoBallAbility : TruongMonoBehaviour
 {
     [SerializeField] protected int amount;
+    public int Amount => amount;
 
     protected override void ResetValue()
     {
         base.ResetValue();
-        amount = 0;
+        ResetAmount();
     }
 
     [Button]
@@ -18,4 +19,12 @@ public abstract class TwoBallAbility : TruongMonoBehaviour
     {
         amount++;
     }
+
+    [Button]
+    public virtual void ResetAmount()
+    {
+        amount = 0;
+    }
+
+    public bool isMaxAmount => amount >= 3;
 }

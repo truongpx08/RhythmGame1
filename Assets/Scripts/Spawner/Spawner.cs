@@ -123,7 +123,7 @@ public abstract class Spawner : TruongMonoBehaviour
     }
 
 
-    private Transform GetObjectFromPool(Transform prefab)
+    protected Transform GetObjectFromPool(Transform prefab)
     {
         foreach (var obj in objectsPool.Where(obj => obj.name == prefab.name))
         {
@@ -142,12 +142,12 @@ public abstract class Spawner : TruongMonoBehaviour
         return newPrefab;
     }
 
-    private Transform GetPrefabByName(string prefabName)
+    protected Transform GetPrefabByName(string prefabName)
     {
         return prefabs.Find(p => p.name == prefabName);
     }
 
-    private Transform GetRandomPrefab()
+    protected Transform GetRandomPrefab()
     {
         int index = Random.Range(0, prefabs.Count);
         return prefabs[index];
