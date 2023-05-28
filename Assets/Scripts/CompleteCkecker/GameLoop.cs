@@ -9,16 +9,10 @@ public class GameLoop : MonoBehaviour
         ballRotating.BallAutoRotateAroundCenter.BallStopRotate.Stop();
         ballRotating.BallTransferToBox.TransferToBox(targetBox);
 
-        var ballCenter = GetBallCenter();
+        var ballCenter = TwoBall.Instance.GetBallCenter();
         ballCenter.BallGetAbilityFromBox.GetAbilityFromBox(targetBox);
         ballCenter.BallAutoRotateAroundCenter.BallContinueRotate.ContinueRotation();
 
         BoxHolder.Instance.BoxHolderSetTargetBox.SetTargetBox();
-    }
-
-    protected Ball GetBallCenter()
-    {
-        var twoBall = TwoBall.Instance;
-        return twoBall.Ball1.BallAutoRotateAroundCenter.IsRotating ? twoBall.Ball2 : twoBall.Ball1;
     }
 }

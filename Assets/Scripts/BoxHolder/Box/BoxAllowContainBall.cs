@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class BoxAllowContainBall : TruongMonoBehaviour
+public class BoxAllowContainBall : BoxAbstract
 {
     [SerializeField] protected bool isAllow;
     public bool IsAllow => isAllow;
@@ -13,8 +15,17 @@ public class BoxAllowContainBall : TruongMonoBehaviour
         isAllow = false;
     }
 
+    [Button]
     public void Allow()
     {
         isAllow = true;
+        // box.BoxSetColorModel.SetColor(Color.white);
+    }
+
+    [Button]
+    public void DoNotAllow()
+    {
+        isAllow = false;
+        box.BoxSetColorModel.SetColor(Color.red);
     }
 }

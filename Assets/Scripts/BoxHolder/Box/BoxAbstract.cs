@@ -5,8 +5,7 @@ using UnityEngine.Serialization;
 
 public abstract class BoxAbstract : TruongMonoBehaviour
 {
-    [FormerlySerializedAs("boxController")] [SerializeField]
-    protected Box box;
+    [SerializeField] protected Box box;
 
     protected override void LoadComponents()
     {

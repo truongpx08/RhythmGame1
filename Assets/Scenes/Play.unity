@@ -836,6 +836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e8f6c0ddcb0d544aca3e88910c35aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  box: {fileID: 0}
   gameLoop: {fileID: 1060818070}
   gameOver: {fileID: 393691541}
 --- !u!1 &588492930
@@ -1014,21 +1015,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162589044}
     m_Modifications:
-    - target: {fileID: 1938294469266978684, guid: e95bac99ff9b27f41b611a0766c7185c,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938294469266978684, guid: e95bac99ff9b27f41b611a0766c7185c,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1938294469266978684, guid: e95bac99ff9b27f41b611a0766c7185c,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 7212270778700506677, guid: e95bac99ff9b27f41b611a0766c7185c,
         type: 3}
       propertyPath: m_RootOrder
@@ -1088,11 +1074,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: NormalBox
-      objectReference: {fileID: 0}
-    - target: {fileID: 8425453405240983072, guid: e95bac99ff9b27f41b611a0766c7185c,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e95bac99ff9b27f41b611a0766c7185c, type: 3}
@@ -1461,7 +1442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball1: {fileID: 1346454328}
   ball2: {fileID: 3534791}
-  towBallReverser: {fileID: 384718038}
+  twoBallReverser: {fileID: 384718038}
 --- !u!4 &1168733535
 Transform:
   m_ObjectHideFlags: 0
@@ -1989,11 +1970,26 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168733535}
     m_Modifications:
+    - target: {fileID: 504247087232721238, guid: b40a1666f343cde4f8241be76980fbfa,
+        type: 3}
+      propertyPath: twoBall
+      value: 
+      objectReference: {fileID: 1168733534}
+    - target: {fileID: 3441734946145463947, guid: b40a1666f343cde4f8241be76980fbfa,
+        type: 3}
+      propertyPath: center
+      value: 
+      objectReference: {fileID: 892390610}
     - target: {fileID: 3441734946145463947, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: twoBall
       value: 
       objectReference: {fileID: 1168733534}
+    - target: {fileID: 3441734946145463947, guid: b40a1666f343cde4f8241be76980fbfa,
+        type: 3}
+      propertyPath: canRotate
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3450406499140786194, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: twoBall
@@ -2073,6 +2069,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168733535}
     m_Modifications:
+    - target: {fileID: 504247087232721238, guid: f91220a09d3366e468dd73560329188a,
+        type: 3}
+      propertyPath: twoBall
+      value: 
+      objectReference: {fileID: 1168733534}
     - target: {fileID: 3450406499140786194, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
       propertyPath: twoBall
@@ -2080,9 +2081,19 @@ PrefabInstance:
       objectReference: {fileID: 1168733534}
     - target: {fileID: 3538287966077633320, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
+      propertyPath: center
+      value: 
+      objectReference: {fileID: 141543359}
+    - target: {fileID: 3538287966077633320, guid: f91220a09d3366e468dd73560329188a,
+        type: 3}
       propertyPath: twoBall
       value: 
       objectReference: {fileID: 1168733534}
+    - target: {fileID: 3538287966077633320, guid: f91220a09d3366e468dd73560329188a,
+        type: 3}
+      propertyPath: canRotate
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4911763448061619815, guid: f91220a09d3366e468dd73560329188a,
         type: 3}
       propertyPath: m_Name

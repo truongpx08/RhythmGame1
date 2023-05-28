@@ -17,7 +17,7 @@ public class BoxContainBall : BoxAbstract
     }
 
     [Button]
-    public void Contain()
+    public void ContainBall()
     {
         isContained = true;
     }

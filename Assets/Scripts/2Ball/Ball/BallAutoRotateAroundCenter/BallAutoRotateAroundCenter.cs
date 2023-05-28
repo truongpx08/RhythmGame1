@@ -18,6 +18,7 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
     [SerializeField] protected float speed;
     [SerializeField] protected bool isRotating;
     [SerializeField] protected bool canRotate;
+    [SerializeField] protected Transform center;
 
     public bool CanRotate
     {
@@ -58,6 +59,11 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
         ballContinueRotate = transform.Find("BallContinueRotate").GetComponent<BallContinueRotate>();
     }
 
+    protected void Rotate()
+    {
+        if (!canRotate) return;
+        RotateAroundCenter(center.transform.position);
+    }
 
     [Button]
     public void ResetAngle(float value)
@@ -70,12 +76,6 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
         isRotating = canRotate;
     }
 
-    [Button]
-    protected virtual void Rotate()
-    {
-        // For override
-    }
-
     protected void RotateAroundCenter(Vector3 centerPosition)
     {
         CalculatorAngle();
@@ -86,7 +86,7 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
 
     protected void CalculatorAngle()
     {
-        if (twoBall.TowBallReverser.IsReverse)
+        if (twoBall.TwoBallReverser.IsReverse)
             angle += speed * Time.deltaTime;
         else
             angle -= speed * Time.deltaTime;

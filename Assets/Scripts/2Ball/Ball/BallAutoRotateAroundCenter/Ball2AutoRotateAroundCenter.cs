@@ -9,11 +9,6 @@ public class Ball2AutoRotateAroundCenter : BallAutoRotateAroundCenter
     {
         base.ResetValue();
         canRotate = true;
-    }
-
-    protected override void Rotate()
-    {
-        if (!canRotate) return;
-        RotateAroundCenter(twoBall.Ball1.transform.position);
+        center = FindObjectOfType<TwoBall>().Ball1.transform;
     }
 }

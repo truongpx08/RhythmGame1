@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class CompleteCkecker : PassABoxChecker  
+public class CompleteCkecker : PassABoxChecker
 {
     [SerializeField] protected GameLoop gameLoop;
     [SerializeField] protected GameOver gameOver;
@@ -35,7 +35,7 @@ public class CompleteCkecker : PassABoxChecker
     protected void CheckComplete()
     {
         var twoBall = TwoBall.Instance;
-        var ballRotating = twoBall.Ball1.BallAutoRotateAroundCenter.IsRotating ? twoBall.Ball1 : twoBall.Ball2;
+        var ballRotating = TwoBall.Instance.GetBallRotating();
         var targetBox = BoxHolder.Instance.BoxHolderSetTargetBox.TargetBox;
         if (IsPassABox(ballRotating, targetBox))
         {
@@ -46,6 +46,4 @@ public class CompleteCkecker : PassABoxChecker
             gameOver.OverGame();
         }
     }
-
-    
 }

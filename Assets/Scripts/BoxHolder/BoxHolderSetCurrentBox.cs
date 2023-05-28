@@ -14,6 +14,8 @@ public class BoxHolderSetCurrentBox : MonoBehaviour
     public void SetCurrentBox(Box newBox)
     {
         currentBox = newBox;
-        CameraController.Instance.Follow(currentBox.transform);        
+        CameraController.Instance.Follow(currentBox.transform);
+        currentBox.BoxSetColorModel.SetColor(Color.green);
+        currentBox.BoxContainBall.ContainBall();
     }
 }

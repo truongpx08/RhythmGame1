@@ -13,7 +13,7 @@ public class BallGetAbilityFromBox : TwoBallAbstract
         }
         else if (targetBox.name == BoxName.ReverseBox)
         {
-            twoBall.TowBallReverser.Reverse();
+            twoBall.TwoBallReverser.Reverse();
         }
     }
 }

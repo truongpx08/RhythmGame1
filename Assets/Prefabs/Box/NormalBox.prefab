@@ -7,15 +7,25 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1897828282974608057, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
+    - target: {fileID: 387335362328830391, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
-      propertyPath: m_IsActive
-      value: 0
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387335362328830391, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 387335362328830391, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7740309805305424107, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_Name
-      value: Box
+      value: NormalBox
       objectReference: {fileID: 0}
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
@@ -25,7 +35,7 @@ PrefabInstance:
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -0.937
       objectReference: {fileID: 0}
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
@@ -70,6 +80,11 @@ PrefabInstance:
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9038225193293358464, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
+        type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

@@ -10,11 +10,9 @@ public class TwoBall : TruongMonoBehaviour
     public Ball Ball1 => ball1;
     [SerializeField] protected Ball ball2;
     public Ball Ball2 => ball2;
+    [SerializeField] protected TwoBallReverser twoBallReverser;
 
-    [FormerlySerializedAs("ballReverser")] [SerializeField]
-    protected TowBallReverser towBallReverser;
-
-    public TowBallReverser TowBallReverser => towBallReverser;
+    public TwoBallReverser TwoBallReverser => twoBallReverser;
 
     protected override void Awake()
     {
@@ -26,13 +24,35 @@ public class TwoBall : TruongMonoBehaviour
     protected override void LoadComponents()
     {
         base.LoadComponents();
-        ball1 = transform.Find("Ball1").GetComponent<Ball>();
-        ball2 = transform.Find("Ball2").GetComponent<Ball>();
+        LoadBall1();
+        LoadBall2();
         LoadBallReverser();
+    }
+
+    private void LoadBall1()
+    {
+        ball1 = transform.Find("Ball1").GetComponent<Ball>();
+    }
+
+    private void LoadBall2()
+    {
+        ball2 = transform.Find("Ball2").GetComponent<Ball>();
     }
 
     protected void LoadBallReverser()
     {
-        towBallReverser = transform.Find("TwoBallReverser").GetComponent<TowBallReverser>();
+        twoBallReverser = transform.Find("TwoBallReverser").GetComponent<TwoBallReverser>();
+    }
+
+    [Button]
+    public Ball GetBallCenter()
+    {
+        return ball1.BallAutoRotateAroundCenter.IsRotating ? ball2 : ball1;
+    }
+
+    [Button]
+    public Ball GetBallRotating()
+    {
+        return ball1.BallAutoRotateAroundCenter.IsRotating ? ball1 : ball2;
     }
 }
