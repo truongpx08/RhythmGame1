@@ -35,6 +35,7 @@ public class BoxSpawner : Spawner
     [Button]
     public void SpawnBoxes()
     {
+        //ToDo: Remove old box
         AddBoxesToLevelPool();
         var lastBox = boxes.Count == 0 ? null : boxes[boxes.Count - 1];
         for (var i = 0; i < amount; i++)

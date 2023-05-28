@@ -7,7 +7,7 @@ using UnityEngine;
 public class DespawnParent : Despawn
 {
     [Button]
-    protected override void DespawnObject()
+    public override void DespawnObject()
     {
         BoxSpawner.Instance.Despawn(transform.parent);
     }

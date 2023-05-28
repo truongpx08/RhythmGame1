@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 387335361618542890}
   - component: {fileID: 387335361618542885}
   m_Layer: 0
-  m_Name: Despawn
+  m_Name: DespawnParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

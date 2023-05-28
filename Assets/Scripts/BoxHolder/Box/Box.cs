@@ -11,6 +11,8 @@ public class Box : TruongMonoBehaviour
     public TextMeshPro Id => id;
     [SerializeField] protected SpriteRenderer model;
     public SpriteRenderer Model => model;
+    [SerializeField] protected DespawnParent despawnParent;
+    public DespawnParent DespawnParent => despawnParent;
     [SerializeField] protected BoxSetPosition boxSetPosition;
     public BoxSetPosition BoxSetPosition => boxSetPosition;
     [SerializeField] protected BoxSetId boxSetId;
@@ -27,12 +29,14 @@ public class Box : TruongMonoBehaviour
         base.LoadComponents();
         LoadModel();
         LoadId();
+        LoadDespawnParent();
         LoadBoxSetPosition();
         LoadBoxSetId();
         LoadBoxSetColorModel();
         LoadBoxAllowContainBall();
         LoadBoxContainBall();
     }
+
 
     private void LoadBoxContainBall()
     {
@@ -45,9 +49,15 @@ public class Box : TruongMonoBehaviour
         model = transform.Find(Constants.MODEL).GetComponent<SpriteRenderer>();
     }
 
+
     protected void LoadId()
     {
         id = transform.Find("Id").GetComponent<TextMeshPro>();
+    }
+
+    private void LoadDespawnParent()
+    {
+        despawnParent = transform.Find("DespawnParent").GetComponent<DespawnParent>();
     }
 
     protected void LoadBoxSetPosition()

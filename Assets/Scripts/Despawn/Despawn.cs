@@ -17,7 +17,7 @@ public abstract class Despawn : TruongMonoBehaviour
         DespawnObject();
     }
 
-    protected virtual void DespawnObject()
+    public virtual void DespawnObject()
     {
         //For override
     }
