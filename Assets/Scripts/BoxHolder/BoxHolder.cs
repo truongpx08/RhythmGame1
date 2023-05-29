@@ -10,6 +10,8 @@ public class BoxHolder : TruongMonoBehaviour
     public BoxHolderSetTargetBox BoxHolderSetTargetBox => boxHolderSetTargetBox;
     [SerializeField] protected BoxHolderSetCurrentBox boxHolderSetCurrentBox;
     public BoxHolderSetCurrentBox BoxHolderSetCurrentBox => boxHolderSetCurrentBox;
+    [SerializeField] protected BoxRemoveOldBox boxRemoveOldBox;
+    public BoxRemoveOldBox BoxRemoveOldBox => boxRemoveOldBox;
 
     protected override void Awake()
     {
@@ -23,7 +25,9 @@ public class BoxHolder : TruongMonoBehaviour
         base.LoadComponents();
         LoadBoxSetBoxCanContainBall();
         LoadBoxHolderSetCurrentBox();
+        LoadBoxRemoveOldBox();
     }
+
 
     protected void LoadBoxHolderSetCurrentBox()
     {
@@ -34,5 +38,10 @@ public class BoxHolder : TruongMonoBehaviour
     {
         boxHolderSetTargetBox =
             transform.Find("BoxHolderSetTargetBox").GetComponent<BoxHolderSetTargetBox>();
+    }
+
+    private void LoadBoxRemoveOldBox()
+    {
+        boxRemoveOldBox = transform.Find("BoxRemoveOldBox").GetComponent<BoxRemoveOldBox>();
     }
 }

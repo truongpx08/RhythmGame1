@@ -13,9 +13,16 @@ public class BoxHolderSetCurrentBox : MonoBehaviour
     [Button]
     public void SetCurrentBox(Box newBox)
     {
+        RemoveOldBox();
         currentBox = newBox;
         CameraController.Instance.Follow(currentBox.transform);
         currentBox.BoxSetColorModel.SetColor(Color.green);
         currentBox.BoxContainBall.ContainBall();
+    }
+
+    public void RemoveOldBox()
+    {
+        if (currentBox == null) return;
+        BoxHolder.Instance.BoxRemoveOldBox.RemoveOldBox(currentBox);
     }
 }
