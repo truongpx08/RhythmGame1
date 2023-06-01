@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BoxDoNotAllowContainBall : BoxAbstract 
+public class BoxDenyingPermission : BoxAbstract
 {
     [SerializeField] private bool canStartCalculation;
 
@@ -22,10 +22,12 @@ public class BoxDoNotAllowContainBall : BoxAbstract
 
     protected void CalculatorMissing()
     {
-        if (!box.BoxAllowContainBall.IsAllow || box.BoxContainBall.IsContained || int.Parse(box.Id.text) == 1) return;
+        if (!box.BoxContainBallHandler.BoxLicensingContainBallHandler.BoxGrantingPermission.IsGranting ||
+            box.BoxContainBallHandler.BoxContainedBallHandler.IsContained ||
+            box.BoxId.Id == 1) return;
         if (!canStartCalculation)
         {
-            if (CanPassABox(TwoBall.Instance.GetBallRotating(), BoxHolder.Instance.BoxHolderSetTargetBox.TargetBox))
+            if (CanPassABox(TwoBall.Instance.GetBallRotating(), BoxHolder.Instance.BoxHolderTargetBox.TargetBox))
             {
                 canStartCalculation = true;
             }
@@ -33,14 +35,14 @@ public class BoxDoNotAllowContainBall : BoxAbstract
             return;
         }
 
-        if (!IsMissABox(TwoBall.Instance.GetBallRotating(), BoxHolder.Instance.BoxHolderSetTargetBox.TargetBox))
+        if (!IsMissABox(TwoBall.Instance.GetBallRotating(), BoxHolder.Instance.BoxHolderTargetBox.TargetBox))
             return;
-        DoNotAllow();
+        Denying();
     }
 
     [Button]
-    public void DoNotAllow()
+    public void Denying()
     {
-        box.BoxAllowContainBall.DoNotAllow();
+        box.BoxContainBallHandler.BoxLicensingContainBallHandler.BoxGrantingPermission.Denying();
     }
 }

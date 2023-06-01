@@ -13,6 +13,6 @@ public class GameLoop : MonoBehaviour
         ballCenter.BallGetAbilityFromBox.GetAbilityFromBox(targetBox);
         ballCenter.BallAutoRotateAroundCenter.BallContinueRotate.ContinueRotation();
 
-        BoxHolder.Instance.BoxHolderSetTargetBox.SetTargetBox();
+        BoxHolder.Instance.BoxHolderTargetBox.SetTargetBox();
     }
 }

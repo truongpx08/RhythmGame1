@@ -22,7 +22,7 @@ public abstract class Despawn : TruongMonoBehaviour
         //For override
     }
 
-    protected virtual bool CanDespawn()
+    public virtual bool CanDespawn()
     {
         return false;
         //For override

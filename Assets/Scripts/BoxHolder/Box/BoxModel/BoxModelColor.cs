@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using Sirenix.OdinInspector;
 using UnityEngine;
 
-public class BoxSetColorModel : BoxAbstract
+public class BoxModelColor : BoxModelAbstract
 {
     [Button]
     public void SetColor(Color color)
     {
-        box.Model.color = color;
+        boxModel.SpriteRenderer.color = color;
     }
 }

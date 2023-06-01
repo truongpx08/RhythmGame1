@@ -7,7 +7,8 @@ public abstract class PassABoxChecker : TruongMonoBehaviour
     public bool IsPassABox(Ball ballRotating, Box targetBox)
     {
         return CanPassABox(ballRotating, targetBox) &&
-               BoxHolder.Instance.BoxHolderSetTargetBox.TargetBox.BoxAllowContainBall.IsAllow;
+               BoxHolder.Instance.BoxHolderTargetBox.TargetBox.BoxContainBallHandler.BoxLicensingContainBallHandler
+                   .BoxGrantingPermission.IsGranting;
     }
 
     public bool IsMissABox(Ball ballRotating, Box targetBox)

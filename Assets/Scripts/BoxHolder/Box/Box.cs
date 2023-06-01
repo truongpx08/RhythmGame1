@@ -7,52 +7,35 @@ using Random = UnityEngine.Random;
 
 public class Box : TruongMonoBehaviour
 {
-    [SerializeField] protected TextMeshPro id;
-    public TextMeshPro Id => id;
-    [SerializeField] protected SpriteRenderer model;
-    public SpriteRenderer Model => model;
+    [SerializeField] protected BoxModel boxModel;
+    public BoxModel BoxModel => boxModel;
+    [SerializeField] protected BoxId boxId;
+    public BoxId BoxId => boxId;
     [SerializeField] protected DespawnParent despawnParent;
     public DespawnParent DespawnParent => despawnParent;
-    [SerializeField] protected BoxSetPosition boxSetPosition;
-    public BoxSetPosition BoxSetPosition => boxSetPosition;
-    [SerializeField] protected BoxSetId boxSetId;
-    public BoxSetId BoxSetId => boxSetId;
-    [SerializeField] protected BoxSetColorModel boxSetColorModel;
-    public BoxSetColorModel BoxSetColorModel => boxSetColorModel;
-    [SerializeField] protected BoxAllowContainBall boxAllowContainBall;
-    public BoxAllowContainBall BoxAllowContainBall => boxAllowContainBall;
-    [SerializeField] protected BoxContainBall boxContainBall;
-    public BoxContainBall BoxContainBall => boxContainBall;
+    [SerializeField] protected BoxPosition boxPosition;
+    public BoxPosition BoxPosition => boxPosition;
+    [SerializeField] protected BoxContainBallHandler boxContainBallHandler;
+    public BoxContainBallHandler BoxContainBallHandler => boxContainBallHandler;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadModel();
-        LoadId();
+        LoadBoxId();
+        LoadBoxPosition();
         LoadDespawnParent();
-        LoadBoxSetPosition();
-        LoadBoxSetId();
-        LoadBoxSetColorModel();
-        LoadBoxAllowContainBall();
-        LoadBoxContainBall();
+        LoadBoxContainBallHandler();
     }
-
-
-    private void LoadBoxContainBall()
-    {
-        boxContainBall = transform.Find("BoxContainBall").GetComponent<BoxContainBall>();
-    }
-
 
     protected void LoadModel()
     {
-        model = transform.Find(Constants.MODEL).GetComponent<SpriteRenderer>();
+        boxModel = transform.Find("BoxModel").GetComponent<BoxModel>();
     }
 
-
-    protected void LoadId()
+    protected void LoadBoxId()
     {
-        id = transform.Find("Id").GetComponent<TextMeshPro>();
+        boxId = transform.Find("BoxId").GetComponent<BoxId>();
     }
 
     private void LoadDespawnParent()
@@ -60,25 +43,13 @@ public class Box : TruongMonoBehaviour
         despawnParent = transform.Find("DespawnParent").GetComponent<DespawnParent>();
     }
 
-    protected void LoadBoxSetPosition()
+    protected void LoadBoxPosition()
     {
-        boxSetPosition = transform.Find("BoxSetPosition").GetComponent<BoxSetPosition>();
+        boxPosition = GetComponentInChildren<BoxPosition>();
     }
 
-    protected void LoadBoxSetId()
+    private void LoadBoxContainBallHandler()
     {
-        boxSetId = transform.Find("BoxSetId").GetComponent<BoxSetId>();
-    }
-
-    protected void LoadBoxSetColorModel()
-    {
-        boxSetColorModel =
-            transform.Find("BoxSetColorModel").GetComponent<BoxSetColorModel>();
-    }
-
-    protected void LoadBoxAllowContainBall()
-    {
-        boxAllowContainBall =
-            transform.Find("BoxAllowContainBall").GetComponent<BoxAllowContainBall>();
+        boxContainBallHandler = GetComponentInChildren<BoxContainBallHandler>();
     }
 }

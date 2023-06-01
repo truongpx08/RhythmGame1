@@ -57,11 +57,11 @@ public class BoxSpawner : Spawner
             {
                 case 0:
                     InitStartBox(newBox);
-                    BoxHolder.Instance.BoxHolderSetCurrentBox.SetCurrentBox(newBox);
+                    BoxHolder.Instance.BoxHolderCurrentBox.SetCurrentBox(newBox);
                     break;
                 case 1:
                     InitFollowLastBox(newBox, lastBox);
-                    BoxHolder.Instance.BoxHolderSetTargetBox.SetTargetBox(newBox);
+                    BoxHolder.Instance.BoxHolderTargetBox.SetTargetBox(newBox);
                     break;
                 default:
                     InitFollowLastBox(newBox, lastBox);
@@ -76,8 +76,8 @@ public class BoxSpawner : Spawner
 
     protected void InitBox(Box newBox)
     {
-        newBox.BoxSetId.SetId(count);
-        newBox.BoxSetColorModel.SetColor(GetColorWithBoxName(newBox.name));
+        newBox.BoxId.SetId(count);
+        newBox.BoxModel.BoxModelColor.SetColor(GetColorWithBoxName(newBox.name));
     }
 
     Color GetColorWithBoxName(string boxName)
@@ -100,12 +100,12 @@ public class BoxSpawner : Spawner
     protected void InitStartBox(Box newBox)
     {
         InitBox(newBox);
-        newBox.BoxSetPosition.SetPosition(Vector3.zero);
+        newBox.BoxPosition.SetPosition(Vector3.zero);
     }
 
     protected void InitFollowLastBox(Box newBox, Box lastBox)
     {
         InitBox(newBox);
-        newBox.BoxSetPosition.SetPosition(lastBox, spacing);
+        newBox.BoxPosition.SetPosition(lastBox, spacing);
     }
 }

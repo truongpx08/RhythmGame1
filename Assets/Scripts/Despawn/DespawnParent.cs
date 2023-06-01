@@ -11,9 +11,4 @@ public class DespawnParent : Despawn
     {
         BoxSpawner.Instance.Despawn(transform.parent);
     }
-
-    protected override bool CanDespawn()
-    {
-        return PlayController.Instance.isCompleted;
-    }
 }

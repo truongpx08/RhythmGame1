@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BoxHolderSetTargetBox : MonoBehaviour
+public class BoxHolderTargetBox : MonoBehaviour
 {
     [SerializeField] protected Box targetBox;
     public Box TargetBox => targetBox;
@@ -14,13 +14,13 @@ public class BoxHolderSetTargetBox : MonoBehaviour
     public void SetTargetBox(Box newBox)
     {
         targetBox = newBox;
-        targetBox.BoxAllowContainBall.Allow();
+        targetBox.BoxContainBallHandler.BoxLicensingContainBallHandler.BoxGrantingPermission.Granting();
     }
 
     [Button]
     public void SetTargetBox()
     {
-        BoxHolder.Instance.BoxHolderSetCurrentBox.SetCurrentBox(targetBox);
+        BoxHolder.Instance.BoxHolderCurrentBox.SetCurrentBox(targetBox);
         var nextBox = GetNextBox();
 
         SetTargetBox(nextBox);
@@ -41,7 +41,7 @@ public class BoxHolderSetTargetBox : MonoBehaviour
     private Box TryGetNextBox()
     {
         return BoxSpawner.Instance.Boxes.Find(b =>
-            int.Parse(b.Id.text) ==
-            int.Parse(targetBox.Id.text) + 1);
+            b.BoxId.Id ==
+            targetBox.BoxId.Id + 1);
     }
 }

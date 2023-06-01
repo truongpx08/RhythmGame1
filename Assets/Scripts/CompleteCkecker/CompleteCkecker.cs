@@ -43,7 +43,7 @@ public class CompleteCkecker : PassABoxChecker
     {
         var twoBall = TwoBall.Instance;
         var ballRotating = TwoBall.Instance.GetBallRotating();
-        var targetBox = BoxHolder.Instance.BoxHolderSetTargetBox.TargetBox;
+        var targetBox = BoxHolder.Instance.BoxHolderTargetBox.TargetBox;
         if (!IsPassABox(ballRotating, targetBox) && !isTest)
         {
             gameOver.OverGame();

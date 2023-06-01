@@ -4,8 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-public class BoxSetPosition : BoxAbstract
+public class BoxPosition : BoxAbstract
 {
+    [Tooltip("Direction relative to the previous box")]
     [SerializeField] protected Direction direction;
 
     protected override void ResetValue()
@@ -48,7 +49,7 @@ public class BoxSetPosition : BoxAbstract
     protected virtual Direction GetDirection(Box lastBox)
     {
         var directions = new List<Direction>();
-        switch (lastBox.BoxSetPosition.direction)
+        switch (lastBox.BoxPosition.direction)
         {
             case Direction.Up:
                 directions.Add(Direction.Up);

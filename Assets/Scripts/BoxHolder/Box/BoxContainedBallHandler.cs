@@ -5,7 +5,7 @@ using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-public class BoxContainBall : BoxAbstract
+public class BoxContainedBallHandler : BoxAbstract
 {
     [SerializeField] protected bool isContained;
     public bool IsContained => isContained;

@@ -15,6 +15,6 @@ public abstract class BoxAbstract : PassABoxChecker
 
     protected void LoadCircleHolderController()
     {
-        box = transform.parent.GetComponent<Box>();
+        box = GetParentComponent<Box>();
     }
 }

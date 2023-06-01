@@ -6,12 +6,14 @@ using UnityEngine.Serialization;
 public class BoxHolder : TruongMonoBehaviour
 {
     public static BoxHolder Instance { get; private set; }
-    [SerializeField] protected BoxHolderSetTargetBox boxHolderSetTargetBox;
-    public BoxHolderSetTargetBox BoxHolderSetTargetBox => boxHolderSetTargetBox;
-    [SerializeField] protected BoxHolderSetCurrentBox boxHolderSetCurrentBox;
-    public BoxHolderSetCurrentBox BoxHolderSetCurrentBox => boxHolderSetCurrentBox;
-    [SerializeField] protected BoxRemoveOldBox boxRemoveOldBox;
-    public BoxRemoveOldBox BoxRemoveOldBox => boxRemoveOldBox;
+    [SerializeField] protected BoxSpawner boxSpawner;
+    public BoxSpawner BoxSpawner => boxSpawner;
+    [SerializeField] protected BoxHolderTargetBox boxHolderTargetBox;
+    public BoxHolderTargetBox BoxHolderTargetBox => boxHolderTargetBox;
+    [SerializeField] protected BoxHolderCurrentBox boxHolderCurrentBox;
+    public BoxHolderCurrentBox BoxHolderCurrentBox => boxHolderCurrentBox;
+    [SerializeField] protected BoxHolderOldBox boxHolderOldBox;
+    public BoxHolderOldBox BoxHolderOldBox => boxHolderOldBox;
 
     protected override void Awake()
     {
@@ -26,22 +28,27 @@ public class BoxHolder : TruongMonoBehaviour
         LoadBoxSetBoxCanContainBall();
         LoadBoxHolderSetCurrentBox();
         LoadBoxRemoveOldBox();
+        LoadBoxSpawner();
     }
-
 
     protected void LoadBoxHolderSetCurrentBox()
     {
-        boxHolderSetCurrentBox = transform.Find("BoxHolderSetCurrentBox").GetComponent<BoxHolderSetCurrentBox>();
+        boxHolderCurrentBox = GetComponentInChildren<BoxHolderCurrentBox>();
     }
 
     protected void LoadBoxSetBoxCanContainBall()
     {
-        boxHolderSetTargetBox =
-            transform.Find("BoxHolderSetTargetBox").GetComponent<BoxHolderSetTargetBox>();
+        boxHolderTargetBox =
+            GetComponentInChildren<BoxHolderTargetBox>();
     }
 
     private void LoadBoxRemoveOldBox()
     {
-        boxRemoveOldBox = transform.Find("BoxRemoveOldBox").GetComponent<BoxRemoveOldBox>();
+        boxHolderOldBox = GetComponentInChildren<BoxHolderOldBox>();
+    }
+
+    private void LoadBoxSpawner()
+    {
+        boxSpawner = GetComponentInChildren<BoxSpawner>();
     }
 }
