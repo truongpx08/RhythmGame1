@@ -986,6 +986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e8f6c0ddcb0d544aca3e88910c35aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceLimit: 0.05
   gameLoop: {fileID: 1060818070}
   gameOver: {fileID: 393691541}
   isTest: 0
@@ -1225,12 +1226,12 @@ PrefabInstance:
     - target: {fileID: 7212270778700506677, guid: e95bac99ff9b27f41b611a0766c7185c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.016
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7212270778700506677, guid: e95bac99ff9b27f41b611a0766c7185c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.492
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7212270778700506677, guid: e95bac99ff9b27f41b611a0766c7185c,
         type: 3}
@@ -1770,7 +1771,7 @@ MonoBehaviour:
   objectsPool: []
   boxLevelPool: {fileID: 537331755}
   amount: 10
-  spacing: 0.4
+  spacing: 0.5
   count: 0
   boxes: []
 --- !u!4 &1204617459
@@ -2459,22 +2460,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168733535}
     m_Modifications:
-    - target: {fileID: 504247087232721238, guid: b40a1666f343cde4f8241be76980fbfa,
-        type: 3}
-      propertyPath: twoBall
-      value: 
-      objectReference: {fileID: 1168733534}
     - target: {fileID: 3441734946145463947, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: center
       value: 
       objectReference: {fileID: 892390610}
     - target: {fileID: 3441734946145463947, guid: b40a1666f343cde4f8241be76980fbfa,
-        type: 3}
-      propertyPath: twoBall
-      value: 
-      objectReference: {fileID: 1168733534}
-    - target: {fileID: 3450406499140786194, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: twoBall
       value: 

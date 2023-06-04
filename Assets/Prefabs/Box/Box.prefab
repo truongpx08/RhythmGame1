@@ -120,7 +120,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 1
-  m_Size: {x: 0.4, y: 0.4}
+  m_Size: {x: 0.5, y: 0.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1db950738d7bdf0429e132f655be1a24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceLimit: 0
   box: {fileID: 6418930170906325272}
   direction: 0
 --- !u!1 &2683440096274201645
@@ -229,6 +230,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 605c09276af900e40ad2d64811ab7642, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceLimit: 0
   box: {fileID: 6418930170906325272}
   id: 0
   idText: {fileID: 3197244230681279582}
@@ -275,6 +277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 543175ba9dcf5724facf3913ae80152c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceLimit: 0
   box: {fileID: 6418930170906325272}
   isContained: 0
 --- !u!1 &4972180612142960327
@@ -591,6 +594,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 025ae7fbedac7a34d999c60b96234c16, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceLimit: 0
   box: {fileID: 6418930170906325272}
   isGranting: 0
 --- !u!1 &7307006818931778641
@@ -690,6 +694,7 @@ MonoBehaviour:
   despawnParent: {fileID: 387335361618542885}
   boxPosition: {fileID: 2560925597157601973}
   boxContainBallHandler: {fileID: 9204602902443938580}
+  boxUnlockHandler: {fileID: 0}
 --- !u!1 &9038225193293358464
 GameObject:
   m_ObjectHideFlags: 0
@@ -733,5 +738,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0668bc89ea5b7f94aa640052500e205b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceLimit: 0.05
   box: {fileID: 6418930170906325272}
   canStartCalculation: 0
+  isUnlockBoxCompleted: 0

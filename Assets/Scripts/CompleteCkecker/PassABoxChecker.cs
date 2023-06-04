@@ -4,6 +4,14 @@ using UnityEngine;
 
 public abstract class PassABoxChecker : TruongMonoBehaviour
 {
+    [SerializeField] protected float distanceLimit;
+
+    protected override void SetDefaultValue()
+    {
+        base.SetDefaultValue();
+        distanceLimit = 0.05f;
+    }
+
     public bool IsPassABox(Ball ballRotating, Box targetBox)
     {
         return CanPassABox(ballRotating, targetBox) &&
@@ -19,6 +27,6 @@ public abstract class PassABoxChecker : TruongMonoBehaviour
     public bool CanPassABox(Ball ballRotating, Box targetBox)
     {
         return Vector3.Distance(ballRotating.transform.position, targetBox.transform.position) <
-               PlayController.Instance.Config.distanceLimit;
+               distanceLimit;
     }
 }

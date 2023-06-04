@@ -16,7 +16,7 @@ MonoBehaviour:
   ballStopRotate: {fileID: 2338541327770429208}
   ballContinueRotate: {fileID: 2121905427706736600}
   angle: -1.5707964
-  radius: 0.4
+  radius: 0.5
   speed: 4
   isRotating: 0
   canRotate: 1
