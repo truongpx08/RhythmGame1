@@ -11,14 +11,20 @@ public class BoxUnlockHandler : BoxAbstract
     protected override void SetDefaultValue()
     {
         base.SetDefaultValue();
+        Lock();
+    }
+
+    [Button]
+    public void Lock()
+    {
         isLock = true;
-        box.BoxModel.BoxModelColor.SetColor(Color.gray);
+        box.BoxModel.BoxIcon.ShowIcon();
     }
 
     [Button]
     public void Unlock()
     {
         isLock = false;
-        box.BoxModel.BoxModelColor.SetColor(Color.white);
+        box.BoxModel.BoxIcon.HideIcon();
     }
 }

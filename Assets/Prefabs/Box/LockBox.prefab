@@ -61,7 +61,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce014234349f4c146913342cb067f89f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  box: {fileID: 0}
+  distanceLimit: 0.05
+  box: {fileID: 7079320910101724827}
   isLock: 1
 --- !u!1001 &790060734166827070
 PrefabInstance:
@@ -78,17 +79,17 @@ PrefabInstance:
     - target: {fileID: 387335362328830391, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_Color.b
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 387335362328830391, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_Color.g
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 387335362328830391, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_Color.r
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 415088650058052927, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
@@ -115,6 +116,12 @@ PrefabInstance:
       propertyPath: boxUnlockHandler
       value: 
       objectReference: {fileID: 7031660004027263428}
+    - target: {fileID: 7438276234451253809, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1202984965197363600, guid: 28f8d4597085f3b4695e1fe96804406d,
+        type: 3}
     - target: {fileID: 7740309805305424107, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_Name

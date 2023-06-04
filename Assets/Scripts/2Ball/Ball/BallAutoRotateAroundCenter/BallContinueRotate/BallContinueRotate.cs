@@ -31,7 +31,7 @@ public class BallContinueRotate : BallAutoRotateAroundCenterAbstract
     protected internal void ContinueRotation()
     {
         var dir = calculateDirection.Calculate(
-            BoxHolder.Instance.BoxHolderCurrentBox.CurrentBox.transform.position,
+            BoxHolder.Instance.BoxHolderCenterBox.CenterBox.transform.position,
             BoxHolder.Instance.BoxHolderTargetBox.TargetBox.transform.position);
         var newAngle = calculateNewAngle.Calculate(dir);
         ballAutoRotateAroundCenter.ResetAngle(newAngle);

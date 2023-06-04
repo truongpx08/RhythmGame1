@@ -70,6 +70,16 @@ PrefabInstance:
       propertyPath: boxContainBallHandler
       value: 
       objectReference: {fileID: 6934261856177407455}
+    - target: {fileID: 7438276234451253809, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7438276234451253809, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7740309805305424107, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_Name
@@ -83,12 +93,12 @@ PrefabInstance:
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.016
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.492
+      value: 0.432
       objectReference: {fileID: 0}
     - target: {fileID: 8903900098557260030, guid: f9804cbe3ad43504a82da6bbe2e6e34c,
         type: 3}

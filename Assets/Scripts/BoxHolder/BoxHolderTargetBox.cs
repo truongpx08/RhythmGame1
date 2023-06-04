@@ -16,32 +16,4 @@ public class BoxHolderTargetBox : MonoBehaviour
         targetBox = newBox;
         targetBox.BoxContainBallHandler.BoxLicensingContainBallHandler.BoxGrantingPermission.Granting();
     }
-
-    [Button]
-    public void SetTargetBox()
-    {
-        BoxHolder.Instance.BoxHolderCurrentBox.SetCurrentBox(targetBox);
-        var nextBox = GetNextBox();
-
-        SetTargetBox(nextBox);
-    }
-
-    private Box GetNextBox()
-    {
-        var nextBox = TryGetNextBox();
-        if (nextBox == null)
-        {
-            BoxSpawner.Instance.SpawnBoxes();
-            nextBox = TryGetNextBox();
-        }
-
-        return nextBox;
-    }
-
-    private Box TryGetNextBox()
-    {
-        return BoxSpawner.Instance.Boxes.Find(b =>
-            b.BoxId.Id ==
-            targetBox.BoxId.Id + 1);
-    }
 }

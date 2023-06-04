@@ -26,5 +26,6 @@ public class BoxGrantingPermission : BoxAbstract
     {
         isGranting = false;
         box.BoxModel.BoxModelColor.SetColor(Color.red);
+        box.BoxModel.BoxIcon.HideIcon();
     }
 }
