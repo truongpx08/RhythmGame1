@@ -9,9 +9,9 @@ public class BoxGrantingPermission : BoxAbstract
     [SerializeField] protected bool isGranting;
     public bool IsGranting => isGranting;
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         isGranting = false;
     }
 

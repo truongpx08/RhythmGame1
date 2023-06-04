@@ -10,9 +10,9 @@ public class BoxContainedBallHandler : BoxAbstract
     [SerializeField] protected bool isContained;
     public bool IsContained => isContained;
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         isContained = false;
     }
 

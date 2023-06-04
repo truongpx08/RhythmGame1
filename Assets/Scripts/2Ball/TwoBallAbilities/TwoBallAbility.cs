@@ -8,9 +8,9 @@ public abstract class TwoBallAbility : TruongMonoBehaviour
     [SerializeField] protected int amount;
     public int Amount => amount;
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         ResetAmount();
     }
 

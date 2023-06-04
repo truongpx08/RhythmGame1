@@ -25,7 +25,7 @@ public class BoxSpawner : Spawner
         boxLevelPool = transform.Find("BoxLevelPool").GetComponent<BoxLevelPool>();
     }
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
         amount = 10;
         spacing = 0.4f;
@@ -92,6 +92,8 @@ public class BoxSpawner : Spawner
                 return Color.blue;
             case BoxName.SpeedDownBox:
                 return Color.magenta;
+            case BoxName.LockBox:
+                return Color.grey;
         }
 
         return default;

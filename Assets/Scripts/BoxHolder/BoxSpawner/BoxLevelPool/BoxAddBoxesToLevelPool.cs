@@ -22,6 +22,9 @@ public class BoxAddBoxesToLevelPool : BoxLevelPoolAbstract
                 case 2:
                     AddBoxToPool(BoxName.SpeedDownBox);
                     break;
+                case 5:
+                    AddBoxToPool(BoxName.LockBox);
+                    break;
                 default:
                     AddBoxToPool(BoxName.NormalBox);
                     break;
@@ -54,6 +57,9 @@ public class BoxAddBoxesToLevelPool : BoxLevelPoolAbstract
                 value = TwoBall.Instance.TwoBallAbilities.TwoBallSpeedUp.Amount >
                         TwoBall.Instance.TwoBallAbilities.TwoBallSpeedDown.Amount &&
                         TwoBall.Instance.TwoBallAbilities.TwoBallSpeedDown.Amount < 3;
+                break;
+            case BoxName.LockBox:
+                value = true;
                 break;
         }
 

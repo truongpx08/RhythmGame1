@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class Ball2AutoRotateAroundCenter : BallAutoRotateAroundCenter
 {
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         canRotate = true;
         center = FindObjectOfType<TwoBall>().Ball1.transform;
     }

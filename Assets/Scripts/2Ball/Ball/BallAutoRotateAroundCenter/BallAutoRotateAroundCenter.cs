@@ -34,9 +34,9 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
         LoadBallContinueRotate();
     }
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         angle = -Mathf.PI / 2;
         radius = 0.4f;
         speed = 4f;
