@@ -61,4 +61,9 @@ public abstract class TruongMonoBehaviour : MonoBehaviour
             return null;
         }
     }
+
+    protected void LogErrorSingleton()
+    {
+        Debug.LogError($"Only one {name} is allowed to exist");
+    }
 }

@@ -15,7 +15,8 @@ public class PlayController : TruongMonoBehaviour
     protected override void Awake()
     {
         base.Awake();
-        if (Instance != null) Debug.LogError($"Only one {name} is allowed to exist");
+        if (Instance != null)
+            LogErrorSingleton();
         Instance = this;
     }
 
