@@ -45,7 +45,7 @@ public class PlayController : TruongMonoBehaviour
         CanvasController.Instance.losePanel.SetActive(true);
     }
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
         SetConfig();
     }

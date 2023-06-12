@@ -8,13 +8,17 @@ public class BoxModel : TruongMonoBehaviour
     public BoxModelColor BoxModelColor => boxModelColor;
     [SerializeField] protected SpriteRenderer spriteRenderer;
     public SpriteRenderer SpriteRenderer => spriteRenderer;
+    [SerializeField] protected BoxIcon boxIcon;
+    public BoxIcon BoxIcon => boxIcon;
 
     protected override void LoadComponents()
     {
         base.LoadComponents();
         LoadBoxSetColorModel();
         LoadSpriteRenderer();
+        LoadBoxIcon();
     }
+
 
     private void LoadSpriteRenderer()
     {
@@ -25,5 +29,10 @@ public class BoxModel : TruongMonoBehaviour
     {
         boxModelColor =
             transform.Find("BoxModelColor").GetComponent<BoxModelColor>();
+    }
+
+    private void LoadBoxIcon()
+    {
+        boxIcon = GetComponentInChildren<BoxIcon>();
     }
 }

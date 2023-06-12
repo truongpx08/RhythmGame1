@@ -9,7 +9,7 @@ public class TwoBallSpeedDown : TwoBallSpeedChange
     public override void Effect()
     {
         base.Effect();
-        xSpeed /= 1.5f;
+        xSpeed /= deltaSpeed;
         if (!isMaxAmount || !TwoBall.Instance.TwoBallAbilities.TwoBallSpeedDown.isMaxAmount) return;
         Reset();
     }

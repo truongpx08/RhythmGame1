@@ -25,7 +25,7 @@ public class BoxSpawner : Spawner
         boxLevelPool = transform.Find("BoxLevelPool").GetComponent<BoxLevelPool>();
     }
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
         amount = 10;
         spacing = 0.4f;
@@ -57,7 +57,7 @@ public class BoxSpawner : Spawner
             {
                 case 0:
                     InitStartBox(newBox);
-                    BoxHolder.Instance.BoxHolderCurrentBox.SetCurrentBox(newBox);
+                    BoxHolder.Instance.BoxHolderCenterBox.SetCenterBox(newBox);
                     break;
                 case 1:
                     InitFollowLastBox(newBox, lastBox);
@@ -77,24 +77,10 @@ public class BoxSpawner : Spawner
     protected void InitBox(Box newBox)
     {
         newBox.BoxId.SetId(count);
-        newBox.BoxModel.BoxModelColor.SetColor(GetColorWithBoxName(newBox.name));
-    }
-
-    Color GetColorWithBoxName(string boxName)
-    {
-        switch (boxName)
-        {
-            case BoxName.NormalBox:
-                return Color.white;
-            case BoxName.ReverseBox:
-                return Color.yellow;
-            case BoxName.SpeedUpBox:
-                return Color.blue;
-            case BoxName.SpeedDownBox:
-                return Color.magenta;
-        }
-
-        return default;
+        newBox.BoxModel.BoxIcon.ShowIcon();
+        newBox.BoxModel.BoxModelColor.SetColor(Color.white);
+        if (newBox.name == BoxName.LockBox)
+            newBox.BoxUnlockHandler.Lock();
     }
 
     protected void InitStartBox(Box newBox)

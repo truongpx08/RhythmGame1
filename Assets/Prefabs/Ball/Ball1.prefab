@@ -16,7 +16,7 @@ MonoBehaviour:
   ballStopRotate: {fileID: 2338541327770429208}
   ballContinueRotate: {fileID: 2121905427706736600}
   angle: -1.5707964
-  radius: 0.4
+  radius: 0.5
   speed: 4
   isRotating: 0
   canRotate: 0
@@ -92,6 +92,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Ball1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254221406118869180, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 2.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 4254221406118869180, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 2.25
       objectReference: {fileID: 0}
     - target: {fileID: 6528393968171968770, guid: c90d8cbb3251a964e9d7d38c6d7ee03a,
         type: 3}

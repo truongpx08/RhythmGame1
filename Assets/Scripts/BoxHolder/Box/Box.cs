@@ -17,6 +17,9 @@ public class Box : TruongMonoBehaviour
     public BoxPosition BoxPosition => boxPosition;
     [SerializeField] protected BoxContainBallHandler boxContainBallHandler;
     public BoxContainBallHandler BoxContainBallHandler => boxContainBallHandler;
+    [SerializeField] protected BoxUnlockHandler boxUnlockHandler;
+    public virtual BoxUnlockHandler BoxUnlockHandler => boxUnlockHandler;
+
 
     protected override void LoadComponents()
     {
@@ -27,6 +30,7 @@ public class Box : TruongMonoBehaviour
         LoadDespawnParent();
         LoadBoxContainBallHandler();
     }
+
 
     protected void LoadModel()
     {

@@ -8,11 +8,13 @@ using UnityEngine.Serialization;
 public class BoxDenyingPermission : BoxAbstract
 {
     [SerializeField] private bool canStartCalculation;
+    [SerializeField] private bool isUnlockBoxCompleted;
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         canStartCalculation = false;
+        isUnlockBoxCompleted = false;
     }
 
     private void Update()
@@ -37,12 +39,26 @@ public class BoxDenyingPermission : BoxAbstract
 
         if (!IsMissABox(TwoBall.Instance.GetBallRotating(), BoxHolder.Instance.BoxHolderTargetBox.TargetBox))
             return;
+        if (isUnlockBoxCompleted)
+        {
+            isUnlockBoxCompleted = false;
+            canStartCalculation = false;
+            return;
+        }
+
         Denying();
     }
+
 
     [Button]
     public void Denying()
     {
         box.BoxContainBallHandler.BoxLicensingContainBallHandler.BoxGrantingPermission.Denying();
+    }
+
+    [Button]
+    public void SetIsFinishUnlockBox(bool value)
+    {
+        isUnlockBoxCompleted = value;
     }
 }

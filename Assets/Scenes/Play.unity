@@ -304,9 +304,16 @@ Transform:
   - {fileID: 2058297775}
   - {fileID: 680391870}
   - {fileID: 1308878852}
+  - {fileID: 170934503}
   m_Father: {fileID: 1204617459}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &170934503 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+    type: 3}
+  m_PrefabInstance: {fileID: 1064444859}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &327176235
 GameObject:
   m_ObjectHideFlags: 0
@@ -408,7 +415,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   boxSpawner: {fileID: 1204617458}
   boxHolderTargetBox: {fileID: 497437739}
-  boxHolderCurrentBox: {fileID: 1210709426}
+  boxHolderCenterBox: {fileID: 0}
   boxHolderOldBox: {fileID: 1896414674}
 --- !u!1 &369004693
 GameObject:
@@ -767,6 +774,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 0
   xSpeed: 1
+  deltaSpeed: 1.25
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,7 +938,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df5bce6138776a3449cb16f914277dab, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  boxAddBoxesToLevelPool: {fileID: 0}
+  boxAddBoxesToLevelPool: {fileID: 385677630}
   boxSpawnObjFromLevelPool: {fileID: 1651833259}
   boxLevelPool: []
 --- !u!1 &565610041
@@ -978,9 +986,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32e8f6c0ddcb0d544aca3e88910c35aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  distanceLimit: 0.05
   gameLoop: {fileID: 1060818070}
   gameOver: {fileID: 393691541}
-  isTest: 1
+  isTest: 0
 --- !u!1 &588492930
 GameObject:
   m_ObjectHideFlags: 0
@@ -1107,6 +1116,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   amount: 0
   xSpeed: 1
+  deltaSpeed: 1.25
 --- !u!1 &797132130
 GameObject:
   m_ObjectHideFlags: 3
@@ -1216,12 +1226,12 @@ PrefabInstance:
     - target: {fileID: 7212270778700506677, guid: e95bac99ff9b27f41b611a0766c7185c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.016
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7212270778700506677, guid: e95bac99ff9b27f41b611a0766c7185c,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.492
+      value: 0.432
       objectReference: {fileID: 0}
     - target: {fileID: 7212270778700506677, guid: e95bac99ff9b27f41b611a0766c7185c,
         type: 3}
@@ -1496,6 +1506,85 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 68617615a028769409a4f41ddd6c9fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1001 &1064444859
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 162589044}
+    m_Modifications:
+    - target: {fileID: 422603603483657957, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7031660004027263428, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: isLock
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7033996786696743125, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_Name
+      value: LockBox
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171744122096169152, guid: c332a106d23a772448073c08bea0a599,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c332a106d23a772448073c08bea0a599, type: 3}
 --- !u!1 &1109497388
 GameObject:
   m_ObjectHideFlags: 0
@@ -1688,7 +1777,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball1: {fileID: 1346454328}
   ball2: {fileID: 3534791}
-  twoBallAbilities: {fileID: 0}
+  twoBallAbilities: {fileID: 1687189826}
 --- !u!4 &1168733535
 Transform:
   m_ObjectHideFlags: 0
@@ -1741,10 +1830,11 @@ MonoBehaviour:
   - {fileID: 2058297775}
   - {fileID: 680391870}
   - {fileID: 1308878852}
+  - {fileID: 170934503}
   objectsPool: []
   boxLevelPool: {fileID: 537331755}
   amount: 10
-  spacing: 0.4
+  spacing: 0.5
   count: 0
   boxes: []
 --- !u!4 &1204617459
@@ -1775,7 +1865,7 @@ GameObject:
   - component: {fileID: 1210709425}
   - component: {fileID: 1210709426}
   m_Layer: 0
-  m_Name: BoxHolderCurrentBox
+  m_Name: BoxHolderCenterBox
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1808,7 +1898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3df28f9fca27814bb04e8711ac5d4cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentBox: {fileID: 0}
+  centerBox: {fileID: 0}
   boxHolderOldBox: {fileID: 1896414674}
 --- !u!4 &1308878852 stripped
 Transform:
@@ -2433,22 +2523,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1168733535}
     m_Modifications:
-    - target: {fileID: 504247087232721238, guid: b40a1666f343cde4f8241be76980fbfa,
-        type: 3}
-      propertyPath: twoBall
-      value: 
-      objectReference: {fileID: 1168733534}
     - target: {fileID: 3441734946145463947, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: center
       value: 
       objectReference: {fileID: 892390610}
     - target: {fileID: 3441734946145463947, guid: b40a1666f343cde4f8241be76980fbfa,
-        type: 3}
-      propertyPath: twoBall
-      value: 
-      objectReference: {fileID: 1168733534}
-    - target: {fileID: 3450406499140786194, guid: b40a1666f343cde4f8241be76980fbfa,
         type: 3}
       propertyPath: twoBall
       value: 

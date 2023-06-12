@@ -10,8 +10,8 @@ public class BoxHolder : TruongMonoBehaviour
     public BoxSpawner BoxSpawner => boxSpawner;
     [SerializeField] protected BoxHolderTargetBox boxHolderTargetBox;
     public BoxHolderTargetBox BoxHolderTargetBox => boxHolderTargetBox;
-    [SerializeField] protected BoxHolderCurrentBox boxHolderCurrentBox;
-    public BoxHolderCurrentBox BoxHolderCurrentBox => boxHolderCurrentBox;
+    [SerializeField] protected BoxHolderCenterBox boxHolderCenterBox;
+    public BoxHolderCenterBox BoxHolderCenterBox => boxHolderCenterBox;
     [SerializeField] protected BoxHolderOldBox boxHolderOldBox;
     public BoxHolderOldBox BoxHolderOldBox => boxHolderOldBox;
 
@@ -33,7 +33,7 @@ public class BoxHolder : TruongMonoBehaviour
 
     protected void LoadBoxHolderSetCurrentBox()
     {
-        boxHolderCurrentBox = GetComponentInChildren<BoxHolderCurrentBox>();
+        boxHolderCenterBox = GetComponentInChildren<BoxHolderCenterBox>();
     }
 
     protected void LoadBoxSetBoxCanContainBall()

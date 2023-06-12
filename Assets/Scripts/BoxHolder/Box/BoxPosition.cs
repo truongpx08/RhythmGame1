@@ -9,9 +9,9 @@ public class BoxPosition : BoxAbstract
     [Tooltip("Direction relative to the previous box")]
     [SerializeField] protected Direction direction;
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         direction = Direction.Up;
     }
 

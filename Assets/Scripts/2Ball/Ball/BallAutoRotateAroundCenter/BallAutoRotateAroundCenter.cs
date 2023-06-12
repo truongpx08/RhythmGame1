@@ -34,11 +34,11 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
         LoadBallContinueRotate();
     }
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         angle = -Mathf.PI / 2;
-        radius = 0.4f;
+        radius = 0.5f;
         speed = 4f;
         isRotating = false;
     }
@@ -87,10 +87,11 @@ public class BallAutoRotateAroundCenter : TwoBallAbstract
 
     protected void CalculatorAngle()
     {
+        var currentSpeed = GetCurrentSpeed();
         if (twoBall.TwoBallAbilities.TwoBallReverser.IsReverse)
-            angle += GetCurrentSpeed() * Time.deltaTime;
+            angle += currentSpeed * Time.deltaTime;
         else
-            angle -= GetCurrentSpeed() * Time.deltaTime;
+            angle -= currentSpeed * Time.deltaTime;
     }
 
     protected float GetCurrentSpeed()

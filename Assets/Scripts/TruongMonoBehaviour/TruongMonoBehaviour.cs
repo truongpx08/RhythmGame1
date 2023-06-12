@@ -9,7 +9,7 @@ public abstract class TruongMonoBehaviour : MonoBehaviour
     protected virtual void SetDefault()
     {
         LoadComponents();
-        ResetValue();
+        SetDefaultValue();
     }
 
     protected virtual void Awake()
@@ -27,7 +27,7 @@ public abstract class TruongMonoBehaviour : MonoBehaviour
         //For override
     }
 
-    protected virtual void ResetValue()
+    protected virtual void SetDefaultValue()
     {
         //For override
     }

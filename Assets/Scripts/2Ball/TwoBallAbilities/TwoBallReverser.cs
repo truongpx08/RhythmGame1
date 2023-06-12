@@ -8,9 +8,9 @@ public class TwoBallReverser : TwoBallAbility
     [SerializeField] protected bool isReverse;
     public bool IsReverse => isReverse;
 
-    protected override void ResetValue()
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         isReverse = false;
     }
 

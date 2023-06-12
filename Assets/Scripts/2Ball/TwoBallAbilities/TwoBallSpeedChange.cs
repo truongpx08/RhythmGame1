@@ -8,15 +8,18 @@ public abstract class TwoBallSpeedChange : TwoBallAbility
     [SerializeField] protected float xSpeed;
     public float XSpeed => xSpeed;
 
-    protected override void ResetValue()
+    [SerializeField] protected float deltaSpeed;
+
+    protected override void SetDefaultValue()
     {
-        base.ResetValue();
+        base.SetDefaultValue();
         ResetXSpeed();
     }
 
     public void ResetXSpeed()
     {
         xSpeed = 1;
+        deltaSpeed = 1.25f;
     }
 
     [Button]
